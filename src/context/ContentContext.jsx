@@ -4,7 +4,7 @@ import { supabase, defaultContent, fetchContent, saveContent, subscribeToContent
 const ContentContext = createContext()
 
 export function ContentProvider({ children }) {
-  const [content, setContent] = useState(defaultContent)
+  const [content, setContent] = useState(null)
   const [loading, setLoading] = useState(true)
 
   // Fetch initial content from Supabase
@@ -18,7 +18,11 @@ export function ContentProvider({ children }) {
         console.error('Load error:', e)
         // Fall back to localStorage
         const saved = localStorage.getItem('wellcrest-content')
-        if (saved) setContent(JSON.parse(saved))
+        if (saved) {
+          setContent(JSON.parse(saved))
+        } else {
+          setContent(defaultContent)
+        }
       }
       setLoading(false)
     }
@@ -39,6 +43,8 @@ export function ContentProvider({ children }) {
   }, [])
 
   const updateContent = async (section, data) => {
+    if (!content) return
+    
     const newContent = { ...content, [section]: data }
     setContent(newContent)
     localStorage.setItem('wellcrest-content', JSON.stringify(newContent))
@@ -49,6 +55,15 @@ export function ContentProvider({ children }) {
     } catch (e) {
       console.error('Save error:', e)
     }
+  }
+
+  // Don't render until content is loaded
+  if (loading || !content) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-slate-500">Loading...</div>
+      </div>
+    )
   }
 
   return (
