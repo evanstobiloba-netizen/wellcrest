@@ -5,7 +5,6 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 
 export const supabase = createClient(supabaseUrl, supabaseKey)
 
-// Default content for first-time setup
 export const defaultContent = {
   _version: 3,
   hero: {
