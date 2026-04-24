@@ -3,11 +3,22 @@ import { supabase, defaultContent, fetchContent, saveContent, subscribeToContent
 
 const ContentContext = createContext()
 
+// Load from localStorage immediately for fast initial render
+const getInitialContent = () => {
+  try {
+    const saved = localStorage.getItem('wellcrest-content')
+    if (saved) return JSON.parse(saved)
+  } catch (e) {
+    console.warn('localStorage parse failed:', e)
+  }
+  return defaultContent
+}
+
 export function ContentProvider({ children }) {
-  const [content, setContent] = useState(null)
+  const [content, setContent] = useState(getInitialContent)
   const [loading, setLoading] = useState(true)
 
-  // Fetch initial content from Supabase
+  // Fetch fresh content from Supabase in background
   useEffect(() => {
     async function load() {
       try {
@@ -15,14 +26,7 @@ export function ContentProvider({ children }) {
         setContent(data)
         localStorage.setItem('wellcrest-content', JSON.stringify(data))
       } catch (e) {
-        console.error('Load error:', e)
-        // Fall back to localStorage
-        const saved = localStorage.getItem('wellcrest-content')
-        if (saved) {
-          setContent(JSON.parse(saved))
-        } else {
-          setContent(defaultContent)
-        }
+        console.warn('Load error, using cached:', e)
       }
       setLoading(false)
     }
@@ -55,15 +59,6 @@ export function ContentProvider({ children }) {
     } catch (e) {
       console.error('Save error:', e)
     }
-  }
-
-  // Don't render until content is loaded
-  if (loading || !content) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-slate-500">Loading...</div>
-      </div>
-    )
   }
 
   return (
