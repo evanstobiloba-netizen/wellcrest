@@ -61,16 +61,23 @@ export async function fetchContent() {
 export async function saveContent(data) {
   const { error } = await supabase
     .from('content')
-    .upsert({ id: 'main', ...data })
+    .upsert({ id: 'main', ...data }, { onConflict: 'id' })
   
   if (error) console.error('Save error:', error)
 }
 
 export function subscribeToContent(callback) {
-  return supabase
-    .channel('content')
-    .on('postgres_changes', { event: '*', schema: 'public', table: 'content' }, (payload) => {
+  const channel = supabase
+    .channel('content-changes')
+    .on('postgres_changes', { 
+      event: '*', 
+      schema: 'public', 
+      table: 'content',
+      filter: 'id=eq.main'
+    }, (payload) => {
       callback(payload.new)
     })
     .subscribe()
+  
+  return channel
 }
