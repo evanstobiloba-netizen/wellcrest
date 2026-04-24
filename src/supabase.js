@@ -43,19 +43,33 @@ export const defaultContent = {
 }
 
 export async function fetchContent() {
-  const { data, error } = await supabase
-    .from('content')
-    .select('*')
-    .eq('id', 'main')
-    .single()
+  // First check localStorage
+  const cached = localStorage.getItem('wellcrest-content')
+  const cachedData = cached ? JSON.parse(cached) : null
   
-  if (error && error.code === 'PGRST116') {
-    // Create default content
-    await supabase.from('content').insert([{ id: 'main', ...defaultContent }])
-    return defaultContent
+  try {
+    const { data, error } = await supabase
+      .from('content')
+      .select('*')
+      .eq('id', 'main')
+      .single()
+    
+    if (error) {
+      console.warn('Supabase fetch error:', error.message)
+      // Return cached or default
+      return cachedData || defaultContent
+    }
+    
+    if (data) {
+      localStorage.setItem('wellcrest-content', JSON.stringify(data))
+      return data
+    }
+    
+    return cachedData || defaultContent
+  } catch (e) {
+    console.warn('Fetch failed, using fallback:', e)
+    return cachedData || defaultContent
   }
-  
-  return data || defaultContent
 }
 
 export async function saveContent(data) {
