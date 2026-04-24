@@ -7,12 +7,27 @@ import { Brain, Heart, Video, Shield, Users, Clock, MapPin, Phone, Mail, ArrowRi
 import { useContent } from '../context/ContentContext'
 
 export default function Articles(){
-  const { content } = useContent()
-  const articles = content.blogPosts || []
-
+  const { content, loading } = useContent()
+  
+  // Wait for content to load, with fallback images
+  const articles = content?.blogPosts || []
+  
   const displayArticles = articles.length > 0 ? articles : [
-    { id: 1, title: 'No blog posts yet', category: 'General', excerpt: 'Add blog posts from the admin panel.', date: new Date().toISOString().split('T')[0], image: '' }
+    { id: 1, title: 'Loading...', content: 'Loading content...', category: 'General', date: '2025-01-01', image: 'https://images.unsplash.com/photo-1559757148-5c350d0d1b37?w=800&h=400&fit=crop' }
   ]
+
+  // Show loading state
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-white">
+        <Navbar />
+        <div className="pt-32 text-center">
+          <p className="text-slate-500">Loading...</p>
+        </div>
+        <Footer />
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen bg-white">
