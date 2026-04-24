@@ -27,14 +27,14 @@ export function ContentProvider({ children }) {
 
   // Subscribe to real-time changes
   useEffect(() => {
-    const unsubscribe = subscribeToContent((data) => {
+    const channel = subscribeToContent((data) => {
       if (data) {
         setContent(data)
         localStorage.setItem('wellcrest-content', JSON.stringify(data))
       }
     })
     return () => {
-      supabase.removeChannel(unsubscribe)
+      supabase.removeChannel(channel)
     }
   }, [])
 
