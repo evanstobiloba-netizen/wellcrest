@@ -4,22 +4,18 @@ const STORAGE_KEY = 'wellcrest-content'
 
 const ContentContext = createContext()
 
-const getInitialContent = () => {
-  try {
+export function ContentProvider({ children }) {
+  const [content, setContent] = useState(() => {
     const saved = localStorage.getItem(STORAGE_KEY)
     if (saved) {
-      const parsed = JSON.parse(saved)
-      if (parsed && parsed.hero) return parsed
+      try {
+        return JSON.parse(saved)
+      } catch (e) {
+        return null
+      }
     }
-  } catch (e) {
-    console.warn('localStorage parse failed:', e)
-  }
-  return null
-}
-
-export function ContentProvider({ children }) {
-  const [content, setContent] = useState(getInitialContent)
-  const [loading, setLoading] = useState(!content)
+    return null
+  })
 
   const updateContent = (section, data) => {
     const newContent = { ...content, [section]: data }
@@ -30,13 +26,17 @@ export function ContentProvider({ children }) {
   if (!content) {
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center">
-        <div className="text-slate-500">Loading...</div>
+        <div className="text-center p-8">
+          <h1 className="text-2xl font-bold text-slate-800 mb-4">WellCrest</h1>
+          <p className="text-slate-500 mb-4">No content found.</p>
+          <p className="text-sm text-slate-400">Please use the admin panel to add content.</p>
+        </div>
       </div>
     )
   }
 
   return (
-    <ContentContext.Provider value={{ content, updateContent, loading }}>
+    <ContentContext.Provider value={{ content, updateContent, loading: false }}>
       {children}
     </ContentContext.Provider>
   )
