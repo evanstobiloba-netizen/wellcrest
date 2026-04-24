@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.6.6",
+    "@supabase/supabase-js": "^2.104.1",
+    "firebase": "^12.12.1",
     "framer-motion": "^7.0.0",
     "lucide-react": "^0.184.0",
     "react": "18.x",
