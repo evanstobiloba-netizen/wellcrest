@@ -1,12 +1,14 @@
 import { createContext, useContext, useState, useEffect } from 'react'
-import { supabase, defaultContent, fetchContent, saveContent, subscribeToContent } from '../supabase'
+import { defaultContent } from '../supabase'
+
+const STORAGE_KEY = 'wellcrest-content'
 
 const ContentContext = createContext()
 
 // Load from localStorage immediately for fast initial render
 const getInitialContent = () => {
   try {
-    const saved = localStorage.getItem('wellcrest-content')
+    const saved = localStorage.getItem(STORAGE_KEY)
     if (saved) return JSON.parse(saved)
   } catch (e) {
     console.warn('localStorage parse failed:', e)
@@ -16,49 +18,12 @@ const getInitialContent = () => {
 
 export function ContentProvider({ children }) {
   const [content, setContent] = useState(getInitialContent)
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
-  // Fetch fresh content from Supabase in background
-  useEffect(() => {
-    async function load() {
-      try {
-        const data = await fetchContent()
-        setContent(data)
-        localStorage.setItem('wellcrest-content', JSON.stringify(data))
-      } catch (e) {
-        console.warn('Load error, using cached:', e)
-      }
-      setLoading(false)
-    }
-    load()
-  }, [])
-
-  // Subscribe to real-time changes
-  useEffect(() => {
-    const channel = subscribeToContent((data) => {
-      if (data) {
-        setContent(data)
-        localStorage.setItem('wellcrest-content', JSON.stringify(data))
-      }
-    })
-    return () => {
-      supabase.removeChannel(channel)
-    }
-  }, [])
-
-  const updateContent = async (section, data) => {
-    if (!content) return
-    
+  const updateContent = (section, data) => {
     const newContent = { ...content, [section]: data }
     setContent(newContent)
-    localStorage.setItem('wellcrest-content', JSON.stringify(newContent))
-    
-    // Save to Supabase
-    try {
-      await saveContent(newContent)
-    } catch (e) {
-      console.error('Save error:', e)
-    }
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(newContent))
   }
 
   return (
