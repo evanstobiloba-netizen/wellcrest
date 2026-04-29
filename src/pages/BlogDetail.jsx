@@ -62,7 +62,7 @@ export default function BlogDetail() {
             <h1 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">{post.title}</h1>
             
             {post.image && (
-              <img src={post.image} alt={post.title} className="w-full h-64 lg:h-96 object-cover rounded-2xl mb-8" />
+              <img src={post.image} alt={post.title} className="w-full h-auto max-h-[70vh] object-cover rounded-2xl mb-8" />
             )}
             
             <div className="prose max-w-none">

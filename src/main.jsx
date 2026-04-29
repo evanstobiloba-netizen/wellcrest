@@ -30,9 +30,7 @@ root.render(
           
           {/* Locations */}
           <Route path="/locations" element={<LocationsPage />} />
-          <Route path="/locations/georgia" element={<LocationDetail location="georgia" />} />
-          <Route path="/locations/arizona" element={<LocationDetail location="arizona" />} />
-          <Route path="/locations/maryland" element={<LocationDetail location="maryland" />} />
+          <Route path="/locations/:location" element={<LocationDetail />} />
           
           <Route path="/articles" element={<Articles />} />
           <Route path="/articles/detail" element={<BlogDetail />} />

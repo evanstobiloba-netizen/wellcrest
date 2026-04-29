@@ -55,7 +55,9 @@ function LocationCard({city, badge, available, location, delay}){
               {available ? 'Available Now' : 'Coming Soon'}
             </span>
           </div>
-          <Link to={`/locations/${location || city.toLowerCase()}`} className="w-4 h-4 text-brand opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all" />
+          <Link to={`/locations/${location || city.toLowerCase()}`} className="w-4 h-4 text-brand opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all">
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </motion.div>

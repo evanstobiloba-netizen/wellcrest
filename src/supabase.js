@@ -32,7 +32,7 @@ export const defaultContent = {
     hours: 'Mon-Fri: 8am-5pm',
   },
   blogPosts: [
-    { id: 1, title: 'Understanding Anxiety: Signs and Coping Strategies', content: 'Learn about the common signs of anxiety and effective strategies to manage it.', date: '2025-04-15', category: 'Mental Health', image: 'https://images.unsplash.com/photo-1559757148-5c350d0d1b37?w=800&h=400&fit=crop' },
+    { id: 1, title: 'Understanding Anxiety: Signs and Coping Strategies', content: 'Learn about the common signs of anxiety and effective strategies to manage it in your daily life. From recognizing early warning signs to implementing proven coping techniques, this guide helps you take control of your mental health journey.', date: '2025-04-15', category: 'Mental Health', image: 'https://images.unsplash.com/photo-1493982305306-a5a2df364595?w=1200&h=600&fit=crop' },
     { id: 2, title: 'The Benefits of Telehealth for Mental Health', content: 'Discover how virtual therapy can provide convenient and effective care.', date: '2025-04-10', category: 'Telehealth', image: 'https://images.unsplash.com/photo-1576091160399-1128b0bbd1be?w=800&h=400&fit=crop' },
     { id: 3, title: 'Managing Stress in Daily Life', content: 'Practical tips for reducing stress and improving your well-being.', date: '2025-04-05', category: 'Wellness', image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&h=400&fit=crop' },
   ],
