@@ -2,17 +2,20 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../sections/Footer'
+import CalendlyModal from '../components/CalendlyModal'
 import { MapPin, Video, Building2, ArrowRight, CheckCircle } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 export default function LocationsPage(){
+  const [showCalendly, setShowCalendly] = React.useState(false)
+
   const locations = [
     {
       id: 'georgia',
       name: 'Georgia',
       tagline: 'In-Person & Telehealth',
-      badge: 'Available',
-      services: ['In-Person Visits', 'Telehealth', 'Psychiatric Care', 'Primary Care'],
+      badge: 'Main Office',
+      services: ['In-Person Visits', 'Telehealth', 'Psychiatric Care', 'Primary Care', 'Medication Management', 'Lab Work'],
       description: 'Our Georgia location offers both in-person and telehealth services in the Atlanta metro area.',
       href: '/locations/georgia'
     },
@@ -20,8 +23,8 @@ export default function LocationsPage(){
       id: 'arizona',
       name: 'Arizona',
       tagline: 'Telehealth Only',
-      badge: 'Available',
-      services: ['Telehealth', 'Psychiatric Care', 'Medication Management'],
+      badge: 'Telehealth',
+      services: ['Telehealth', 'Psychiatric Care', 'Medication Management', 'Therapy'],
       description: 'Access quality mental health care from anywhere in Arizona through our secure telehealth platform.',
       href: '/locations/arizona'
     },
@@ -29,8 +32,8 @@ export default function LocationsPage(){
       id: 'maryland',
       name: 'Maryland',
       tagline: 'Telehealth Only',
-      badge: 'Available',
-      services: ['Telehealth', 'Psychiatric Care', 'Medication Management'],
+      badge: 'Telehealth',
+      services: ['Telehealth', 'Psychiatric Care', 'Medication Management', 'Therapy'],
       description: 'Access quality mental health care from anywhere in Maryland through our secure telehealth platform.',
       href: '/locations/maryland'
     }
@@ -39,14 +42,10 @@ export default function LocationsPage(){
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
+      <CalendlyModal open={showCalendly} onClose={() => setShowCalendly(false)} />
       
       {/* Hero Section */}
-      <section className="relative bg-white pt-28 pb-16">
-        <div className="absolute inset-0 pointer-events-none" aria-hidden>
-          <div className="absolute top-20 -left-40 w-96 h-96 bg-blue-50 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 -right-40 w-80 h-80 bg-violet-50 rounded-full blur-3xl" />
-        </div>
-        
+      <section className="relative bg-gradient-to-br from-brand/5 via-white to-brand-teal/5 pt-28 pb-16">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10 relative">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12">
             <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">Our Locations</h1>
@@ -66,7 +65,7 @@ export default function LocationsPage(){
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-lg hover:border-brand-navy transition-all group"
+                className="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-lg hover:border-brand transition-all group"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-3">
@@ -78,7 +77,7 @@ export default function LocationsPage(){
                       <p className="text-xs text-slate-500">{location.tagline}</p>
                     </div>
                   </div>
-                  <span className="text-xs px-2 py-1 bg-emerald-50 text-emerald-600 rounded-full font-medium">
+                  <span className={`text-xs px-2 py-1 rounded-full font-medium ${location.badge === 'Main Office' ? 'bg-brand/10 text-brand' : 'bg-violet-50 text-violet-600'}`}>
                     {location.badge}
                   </span>
                 </div>
@@ -129,13 +128,13 @@ export default function LocationsPage(){
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-r ">
+      <section className="py-16 bg-gradient-to-r from-brand to-brand-teal">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Ready to Book an Appointment?</h2>
           <p className="text-white/80 mb-8 max-w-2xl mx-auto">Schedule your visit today and start your journey to better health.</p>
-          <Link to="/contact" className="inline-flex items-center gap-2 bg-white text-brand px-6 py-3 rounded-xl font-medium hover:bg-white/90 transition-colors">
+          <button onClick={() => setShowCalendly(true)} className="inline-flex items-center gap-2 bg-white text-brand px-6 py-3 rounded-xl font-medium hover:bg-white/90 transition-colors">
             Book Appointment <ArrowRight className="w-5 h-5" />
-          </Link>
+          </button>
         </div>
       </section>
 
