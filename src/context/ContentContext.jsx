@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react'
-import { defaultContent, fetchContent, saveContent as saveToSupabase } from '../supabase'
+import { defaultContent, fetchContent, subscribeToContent, saveContent as saveToSupabase } from '../supabase'
 
 const STORAGE_KEY = 'wellcrest-content'
 
@@ -28,6 +28,19 @@ export function ContentProvider({ children }) {
       }
     }).catch(() => {})
     return () => { mounted = false }
+  }, [])
+
+  // Subscribe to real-time changes from Supabase
+  useEffect(() => {
+    const channel = subscribeToContent((data) => {
+      if (data) {
+        setContent(data)
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
+      }
+    })
+    return () => {
+      if (channel) channel.unsubscribe()
+    }
   }, [])
 
   const updateContent = async (section, data) => {

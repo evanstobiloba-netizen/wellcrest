@@ -40,13 +40,56 @@ export const defaultContent = {
 
 export async function fetchContent() {
   const cached = localStorage.getItem('wellcrest-content')
-  return cached ? JSON.parse(cached) : defaultContent
+  const cachedData = cached ? JSON.parse(cached) : null
+  
+  try {
+    const { data, error } = await supabase
+      .from('content')
+      .select('data')
+      .eq('id', 'main')
+      .maybeSingle()
+    
+    if (error) {
+      console.warn('Supabase fetch error:', error.message)
+      return cachedData || defaultContent
+    }
+    
+    if (data && data.data) {
+      localStorage.setItem('wellcrest-content', JSON.stringify(data.data))
+      return data.data
+    }
+    
+    return cachedData || defaultContent
+  } catch (e) {
+    console.warn('Fetch failed, using fallback:', e)
+    return cachedData || defaultContent
+  }
 }
 
 export async function saveContent(data) {
+  const { error } = await supabase
+    .from('content')
+    .upsert({ id: 'main', data }, { onConflict: 'id' })
+  
+  if (error) {
+    console.error('Save error:', error)
+    throw new Error(error.message)
+  }
   return true
 }
 
 export function subscribeToContent(callback) {
-  return null
+  const channel = supabase
+    .channel('content-changes')
+    .on('postgres_changes', { 
+      event: '*', 
+      schema: 'public', 
+      table: 'content',
+      filter: 'id=eq.main'
+    }, (payload) => {
+      callback(payload.new.data)
+    })
+    .subscribe()
+  
+  return channel
 }
