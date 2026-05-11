@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { 
   Home, FileText, MapPin, Users, LogOut, Edit, Plus, Trash2,
-  Phone, BookOpen, Send, Lock, X, Menu, Save, ArrowLeft, ArrowRight
+  Phone, BookOpen, Send, Lock, X, Menu, Save, ArrowLeft, ArrowRight,
+  Upload
 } from 'lucide-react'
 import { ContentProvider, useContent } from '../context/ContentContext'
+import { saveContent } from '../supabase'
 
 const ADMIN_PASSWORD = '[REDACTED]'
 
@@ -495,6 +497,20 @@ function AdminDashboard({ onLogout }) {
   const { content, updateContent } = useContent()
   const [activeSection, setActiveSection] = useState('dashboard')
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [syncing, setSyncing] = useState(false)
+  const [syncMsg, setSyncMsg] = useState('')
+
+  const handleSync = async () => {
+    setSyncing(true)
+    setSyncMsg('')
+    try {
+      await saveContent(content)
+      setSyncMsg('All content synced to Supabase!')
+    } catch (e) {
+      setSyncMsg('Sync failed: ' + e.message)
+    }
+    setSyncing(false)
+  }
 
   const navItems = [
     { id: 'dashboard', label: 'Dashboard', icon: Home },
@@ -591,23 +607,29 @@ function AdminDashboard({ onLogout }) {
           
           {/* Dashboard Stats */}
           {activeSection === 'dashboard' && (
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <div className="text-3xl font-bold text-brand">{content?.services?.length || 0}</div>
-                <div className="text-sm text-slate-500">Services</div>
+            <div>
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <div className="bg-white rounded-2xl p-6 shadow-sm">
+                  <div className="text-3xl font-bold text-brand">{content?.services?.length || 0}</div>
+                  <div className="text-sm text-slate-500">Services</div>
+                </div>
+                <div className="bg-white rounded-2xl p-6 shadow-sm">
+                  <div className="text-3xl font-bold text-brand">{content?.locations?.length || 0}</div>
+                  <div className="text-sm text-slate-500">Locations</div>
+                </div>
+                <div className="bg-white rounded-2xl p-6 shadow-sm">
+                  <div className="text-3xl font-bold text-brand">3</div>
+                  <div className="text-sm text-slate-500">States</div>
+                </div>
+                <div className="bg-white rounded-2xl p-6 shadow-sm">
+                  <div className="text-3xl font-bold text-brand">{content?.blogPosts?.length || 0}</div>
+                  <div className="text-sm text-slate-500">Blog Posts</div>
+                </div>
               </div>
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <div className="text-3xl font-bold text-brand">{content?.locations?.length || 0}</div>
-                <div className="text-sm text-slate-500">Locations</div>
-              </div>
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <div className="text-3xl font-bold text-brand">3</div>
-                <div className="text-sm text-slate-500">States</div>
-              </div>
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <div className="text-3xl font-bold text-brand">{content?.blogPosts?.length || 0}</div>
-                <div className="text-sm text-slate-500">Blog Posts</div>
-              </div>
+              <button onClick={handleSync} disabled={syncing} className="flex items-center gap-2 px-4 py-2 bg-brand text-white rounded-xl hover:opacity-90 transition-all disabled:opacity-50">
+                <Upload className="w-4 h-4" /> {syncing ? 'Syncing...' : 'Sync All Content to Live'}
+              </button>
+              {syncMsg && <p className="text-sm text-emerald-600 mt-2">{syncMsg}</p>}
             </div>
           )}
 
