@@ -6,7 +6,7 @@ import {
   Phone, BookOpen, Send, Lock, X, Menu, Save, ArrowLeft, ArrowRight,
   Upload
 } from 'lucide-react'
-import { ContentProvider, useContent } from '../context/ContentContext'
+import { useContent } from '../context/ContentContext'
 import { saveContent } from '../supabase'
 
 const ADMIN_PASSWORD = '[REDACTED]'
@@ -687,11 +687,7 @@ export default function Admin() {
   }
 
   if (showDashboard) {
-    return (
-      <ContentProvider>
-        <AdminDashboard onLogout={onLogout} />
-      </ContentProvider>
-    )
+    return <AdminDashboard onLogout={onLogout} />
   }
 
   return (
