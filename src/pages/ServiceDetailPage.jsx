@@ -2,13 +2,12 @@ import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../sections/Footer'
-import BookAppointmentButton from '../components/BookAppointmentButton'
-import { ArrowLeft, Brain, Activity, Shield, Video, Calendar, AlertCircle, Zap, Moon, Heart, Stethoscope, ArrowRight, MapPin, Phone, Mail, Clock } from 'lucide-react'
+import { useCalendly } from '../components/CalendlyModal'
+import { ArrowLeft, Brain, Activity, Shield, Video, Calendar, AlertCircle, Zap, Moon, Heart, Stethoscope, ArrowRight, CheckCircle } from 'lucide-react'
 import { motion } from 'framer-motion'
 
-const mentalHealthServices = [
-  {
-    id: 'depression',
+const allServices = {
+  'depression': {
     title: 'Depression Treatment',
     shortDesc: 'Professional help for managing depression',
     description: 'Depression is a common but serious mood disorder. It causes severe symptoms that affect how a person feels, thinks, and handles daily activities, such as sleeping, eating, or working. The symptoms must be present for at least 2 weeks to be diagnosed with depression. At WellCrest Health, we provide comprehensive care for patients struggling with depression.',
@@ -20,11 +19,10 @@ const mentalHealthServices = [
     ],
     conditions: ['Major Depressive Disorder', 'Persistent Depressive Disorder', 'Seasonal Affective Disorder', 'Postpartum Depression']
   },
-  {
-    id: 'anxiety',
+  'anxiety': {
     title: 'Anxiety Treatment',
     shortDesc: 'Effective treatments to help you manage anxiety',
-    description: 'Occasional anxiety is a normal part of life. Many people may worry about things such as health, money, or family problems. But people with GAD feel extremely worried or nervous more frequently about these and other things even when there is little or no reason to worry about them. Anxiety can be overwhelming, but with WellCrest Health, you don\'t have to face it alone.',
+    description: 'Occasional anxiety is a normal part of life. Many people may worry about things such as health, money, or family problems. But people with GAD feel extremely worried or nervous more frequently about these and other things even when there is little or no reason to worry about them.',
     icon: AlertCircle,
     features: [
       { icon: Activity, title: 'CBT Therapy', desc: 'Cognitive-behavioral therapy techniques' },
@@ -34,11 +32,10 @@ const mentalHealthServices = [
     ],
     conditions: ['Generalized Anxiety Disorder', 'Panic Disorder', 'Social Anxiety', 'Specific Phobias', 'Agoraphobia']
   },
-  {
-    id: 'bipolar',
+  'bipolar': {
     title: 'Bipolar Disorder',
     shortDesc: 'Specialized care for bipolar disorder',
-    description: 'Bipolar disorder is a mental illness that causes remarkable shifts in a person\'s mood, energy, activity levels, and concentration. These shifts can make it difficult to carry out day-to-day tasks. Managing bipolar disorder requires a nuanced and compassionate approach.',
+    description: 'Bipolar disorder is a mental illness that causes remarkable shifts in a person\'s mood, energy, activity levels, and concentration. These shifts can make it difficult to carry out day-to-day tasks.',
     icon: Zap,
     features: [
       { icon: Activity, title: 'Mood Stabilizers', desc: 'Medication to balance mood swings' },
@@ -48,8 +45,7 @@ const mentalHealthServices = [
     ],
     conditions: ['Bipolar I Disorder', 'Bipolar II Disorder', 'Cyclothymic Disorder', 'Rapid Cycling']
   },
-  {
-    id: 'adhd',
+  'adhd': {
     title: 'ADD/ADHD Treatment',
     shortDesc: 'Comprehensive care for attention deficit disorders',
     description: 'Attention-deficit/hyperactivity disorder (ADHD) is marked by an ongoing pattern of inattention and/or hyperactivity-impulsivity that interferes with functioning or development.',
@@ -62,8 +58,7 @@ const mentalHealthServices = [
     ],
     conditions: ['ADHD Combined Type', 'ADHD Predominantly Inattentive', 'ADHD Predominantly Hyperactive', 'Adult ADHD']
   },
-  {
-    id: 'ptsd',
+  'ptsd': {
     title: 'PTSD Treatment',
     shortDesc: 'Comprehensive support for post-traumatic stress disorder',
     description: 'Post-traumatic stress disorder (PTSD) can have a great impact on every aspect of a person\'s life. At WellCrest Health, we offer compassionate and effective care for patients dealing with PTSD.',
@@ -73,8 +68,7 @@ const mentalHealthServices = [
     ],
     conditions: ['PTSD from Trauma', 'Complex PTSD', 'Developmental Trauma', 'Acute Stress Disorder']
   },
-  {
-    id: 'insomnia',
+  'insomnia': {
     title: 'Insomnia Treatment',
     shortDesc: 'Effective treatments for sleep disorders',
     description: 'Insomnia is a common sleep disorder that can make falling or staying asleep hard. Patients with insomnia usually complain about difficulty falling asleep and staying asleep.',
@@ -87,8 +81,7 @@ const mentalHealthServices = [
     ],
     conditions: ['Chronic Insomnia', 'Acute Insomnia', 'Sleep Onset Disorder', 'Sleep Maintenance Disorder']
   },
-  {
-    id: 'stress',
+  'stress': {
     title: 'Stress & Burnout',
     shortDesc: 'Support and strategies for managing stress',
     description: 'Stress is an unavoidable part of life, but with the right tools, it doesn\'t have to take over your life. WellCrest Health offers services designed to help individuals manage stress effectively.',
@@ -100,12 +93,8 @@ const mentalHealthServices = [
       { icon: Shield, title: 'Resilience Building', desc: 'Strengthen your coping abilities' }
     ],
     conditions: ['Chronic Stress', 'Occupational Burnout', 'Caregiver Stress', 'Life Transitions']
-  }
-]
-
-const primaryHealthServices = [
-  {
-    id: 'primary-care',
+  },
+  'primary-care': {
     title: 'Primary Care',
     shortDesc: 'Comprehensive primary healthcare services',
     description: 'Our primary care services focus on preventive health, chronic disease management, and overall wellness. We provide comprehensive healthcare for patients of all ages.',
@@ -118,8 +107,7 @@ const primaryHealthServices = [
     ],
     conditions: ['Hypertension', 'Diabetes', 'UTI', 'Blood Pressure']
   },
-  {
-    id: 'medication',
+  'medication': {
     title: 'Medication Management',
     shortDesc: 'Expert prescription and monitoring',
     description: 'Our medication management services ensure safe and effective use of medications for mental health and primary care conditions.',
@@ -132,8 +120,7 @@ const primaryHealthServices = [
     ],
     conditions: ['Medication Reviews', 'Refill Management', 'Drug Interactions', 'Adherence Support']
   },
-  {
-    id: 'telehealth',
+  'telehealth': {
     title: 'Telehealth Services',
     shortDesc: 'Virtual healthcare from anywhere',
     description: 'Access quality healthcare from the comfort of your home. Our telehealth services make it easy to get the care you need, wherever you are.',
@@ -146,145 +133,141 @@ const primaryHealthServices = [
     ],
     conditions: ['Virtual Visits', 'Remote Monitoring', 'Online Prescriptions', 'Tele-therapy']
   }
-]
+}
 
-export default function ServiceDetail({ type }) {
-  const services = type === 'mental' ? mentalHealthServices : primaryHealthServices
-  const pageTitle = type === 'mental' ? 'Mental Health Services' : 'Primary Health Services'
-  const pageDesc = type === 'mental' 
-    ? 'Comprehensive mental health care services including depression, anxiety, bipolar disorder, PTSD, and more.'
-    : 'Comprehensive primary healthcare services for preventive health, chronic disease management, and wellness.'
+export default function ServiceDetailPage() {
+  const { serviceId } = useParams()
+  const calendly = useCalendly()
+  const service = allServices[serviceId]
+
+  // Determine which category this service belongs to
+  const mentalServices = ['depression', 'anxiety', 'bipolar', 'adhd', 'ptsd', 'insomnia', 'stress']
+  const category = mentalServices.includes(serviceId) ? 'mental-health' : 'primary-health'
+  const categoryTitle = mentalServices.includes(serviceId) ? 'Mental Health Services' : 'Primary Health Services'
+
+  if (!service) {
+    return (
+      <div className="min-h-screen bg-white">
+        <Navbar />
+        <div className="pt-32 pb-20 text-center">
+          <p className="text-slate-500">Service not found</p>
+          <Link to="/services" className="text-brand mt-4 inline-block">Back to Services</Link>
+        </div>
+        <Footer />
+      </div>
+    )
+  }
+
+  const Icon = service.icon
 
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
       
-      {/* Hero Section */}
-      <section className="relative bg-white pt-28 pb-16">
-        <div className="absolute inset-0 pointer-events-none" aria-hidden>
-          <div className="absolute top-20 -left-40 w-96 h-96 bg-blue-50 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 -right-40 w-80 h-80 bg-violet-50 rounded-full blur-3xl" />
-        </div>
-        
+      {/* Hero */}
+      <section className="relative bg-gradient-to-br from-brand/5 via-white to-brand-teal/5 pt-28 pb-16">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10 relative">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-12">
-            <Link to="/services" className="inline-flex items-center gap-2 text-brand hover:gap-3 transition-all mb-6">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+            <Link to={`/services/${category}`} className="inline-flex items-center gap-2 text-brand hover:gap-3 transition-all mb-6">
               <ArrowLeft className="w-4 h-4" />
-              All Services
+              {categoryTitle}
             </Link>
-            <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">{pageTitle}</h1>
-            <p className="text-lg text-slate-500 max-w-2xl">{pageDesc}</p>
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-brand to-brand-teal flex items-center justify-center">
+                <Icon className="w-8 h-8 text-white" />
+              </div>
+              <div>
+                <h1 className="text-4xl sm:text-5xl font-bold text-slate-900">{service.title}</h1>
+                <p className="text-slate-500 mt-2">{service.shortDesc}</p>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Services List */}
+      {/* Content */}
       <section className="py-16">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="grid md:grid-cols-2 gap-6">
-            {services.map((service, idx) => (
-              <motion.div 
-                key={service.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-lg hover:border-brand-navy transition-all"
-              >
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-brand to-brand-teal flex items-center justify-center flex-shrink-0">
-                    <service.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-900">{service.title}</h3>
-                    <p className="text-sm text-slate-500">{service.shortDesc}</p>
-                  </div>
+          <div className="grid lg:grid-cols-3 gap-12">
+            <div className="lg:col-span-2">
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                <p className="text-slate-600 text-lg leading-relaxed mb-8">{service.description}</p>
+
+                <h2 className="text-2xl font-bold text-slate-900 mb-6">What We Offer</h2>
+                <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                  {service.features.map((feature, fidx) => (
+                    <div key={fidx} className="flex items-start gap-3 p-4 bg-slate-50 rounded-xl">
+                      <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center shrink-0">
+                        <feature.icon className="w-5 h-5 text-brand" />
+                      </div>
+                      <div>
+                        <div className="font-semibold text-slate-900">{feature.title}</div>
+                        <div className="text-sm text-slate-500">{feature.desc}</div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                
-                <p className="text-slate-600 mb-4 text-sm line-clamp-2">{service.description}</p>
-                
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {service.conditions.slice(0, 3).map((cond, cidx) => (
-                    <span key={cidx} className="text-xs px-2 py-1 bg-slate-100 text-slate-600 rounded-full">
+
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">Conditions We Treat</h2>
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {service.conditions.map((cond, cidx) => (
+                    <span key={cidx} className="px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-sm">
                       {cond}
                     </span>
                   ))}
-                  {service.conditions.length > 3 && (
-                    <span className="text-xs px-2 py-1 text-brand">+{service.conditions.length - 3} more</span>
-                  )}
                 </div>
-                
-                <Link 
-                  to={`/services/${type === 'mental' ? 'mental-health' : 'primary-health'}/${service.id}`}
-                  className="inline-flex items-center gap-2 text-brand font-medium text-sm hover:gap-3 transition-all"
-                >
-                  Learn More <ArrowRight className="w-4 h-4" />
-                </Link>
+
+                <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+                  <h3 className="font-semibold text-slate-900 mb-2">Need Help Deciding?</h3>
+                  <p className="text-slate-500 text-sm mb-4">Speak with our care team. We'll help you find the right treatment.</p>
+                  <button onClick={calendly.open} className="btn-primary">Book a Consultation</button>
+                </div>
               </motion.div>
-            ))}
+            </div>
+
+            {/* Sidebar */}
+            <div className="lg:col-span-1">
+              <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="bg-slate-50 rounded-2xl p-6 sticky top-8">
+                <h3 className="text-lg font-bold text-slate-900 mb-4">Quick Info</h3>
+                <div className="space-y-4 mb-6">
+                  <div className="flex items-center gap-3">
+                    <Shield className="w-5 h-5 text-brand" />
+                    <div>
+                      <p className="text-sm font-medium text-slate-900">Insurance Accepted</p>
+                      <p className="text-xs text-slate-500">Most major plans</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Video className="w-5 h-5 text-brand" />
+                    <div>
+                      <p className="text-sm font-medium text-slate-900">Telehealth</p>
+                      <p className="text-xs text-slate-500">Available in GA, AZ, MD</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Calendar className="w-5 h-5 text-brand" />
+                    <div>
+                      <p className="text-sm font-medium text-slate-900">In-Person</p>
+                      <p className="text-xs text-slate-500">Georgia location</p>
+                    </div>
+                  </div>
+                </div>
+                <button onClick={calendly.open} className="btn-primary w-full mb-2">Book Appointment</button>
+                <p className="text-xs text-slate-400 text-center">No referral needed</p>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Service Detail Sections */}
-      {services.map((service, idx) => (
-        <section key={service.id} id={service.id} className="py-16 bg-slate-50">
-          <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10">
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 sm:p-12">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 rounded-xl bg-gradient-to-r from-brand to-brand-teal flex items-center justify-center">
-                  <service.icon className="w-8 h-8 text-white" />
-                </div>
-                <div>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">{service.title}</h2>
-                  <p className="text-sm text-slate-400">WellCrest Health</p>
-                </div>
-              </div>
-              
-              <p className="text-slate-600 mb-8 text-base leading-relaxed">{service.description}</p>
-              
-              <h3 className="text-lg font-semibold text-slate-900 mb-4">What We Offer</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                {service.features.map((feature, fidx) => (
-                  <div key={fidx} className="flex items-start gap-3 p-4 bg-slate-50 rounded-xl">
-                    <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
-                      <feature.icon className="w-5 h-5 text-brand" />
-                    </div>
-                    <div>
-                      <div className="font-semibold text-slate-900">{feature.title}</div>
-                      <div className="text-sm text-slate-500">{feature.desc}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              <h3 className="text-lg font-semibold text-slate-900 mb-4">Conditions We Treat</h3>
-              <div className="flex flex-wrap gap-2 mb-8">
-                {service.conditions.map((cond, cidx) => (
-                  <span key={cidx} className="text-sm px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full">
-                    {cond}
-                  </span>
-                ))}
-              </div>
-              
-              <div className="pt-8 border-t border-slate-200">
-                <Link to="/contact" className="inline-flex items-center gap-2 btn-primary">
-                  Schedule Appointment <ArrowRight className="w-5 h-5" />
-                </Link>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-      ))}
-
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r ">
+      {/* CTA */}
+      <section className="py-16 bg-gradient-to-r from-brand to-brand-teal text-white">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Ready to Start Your Journey?</h2>
-          <p className="text-white/80 mb-8 max-w-2xl mx-auto">Schedule an appointment today and take the first step towards better mental health.</p>
-          <Link to="/contact" className="inline-flex items-center gap-2 bg-white text-brand px-6 py-3 rounded-xl font-medium hover:bg-white/90 transition-colors">
+          <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+          <p className="text-white/80 mb-8 max-w-xl mx-auto">Our compassionate team is here to support you every step of the way.</p>
+          <button onClick={calendly.open} className="inline-flex items-center gap-2 px-8 py-4 bg-white text-brand rounded-xl font-semibold hover:bg-white/90 transition-all">
             Book Appointment <ArrowRight className="w-5 h-5" />
-          </Link>
+          </button>
         </div>
       </section>
 

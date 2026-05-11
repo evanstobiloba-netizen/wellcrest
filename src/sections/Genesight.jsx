@@ -45,48 +45,18 @@ export default function Genesight(){
             </div>
           </motion.div>
           
-          <motion.div 
-            initial={{ opacity: 0, x: 30 }} 
-            whileInView={{ opacity: 1, x: 0 }} 
-            viewport={{ once: true }} 
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            {/* Card visual */}
-            <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-6 sm:p-8">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-brand to-brand-teal flex items-center justify-center">
-                  <Activity className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <div className="font-semibold text-slate-900">Genesight</div>
-                  <div className="text-xs text-slate-400">Analysis Ready</div>
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-3 gap-3">
-                {[1, 2, 3, 4, 5, 6].map((i) => (
-                  <motion.div 
-                    key={i}
-                    initial={{ opacity: 0.3 }}
-                    whileInView={{ opacity: [0.3, 0.7, 0.3] }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 2, repeat: Infinity, delay: i * 0.15 }}
-                    className="aspect-square rounded-xl bg-slate-100"
-                  />
-                ))}
-              </div>
-              
-              <div className="mt-6 pt-4 border-t border-slate-100">
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-slate-500">Analysis Status</span>
-                  <span className="flex items-center gap-2 text-emerald-600 font-medium">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                    Active
-                  </span>
-                </div>
-              </div>
-            </div>
+            <img
+              src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=600&h=500&fit=crop"
+              alt="Genesight genetic testing"
+              className="w-full h-auto rounded-2xl shadow-xl object-cover"
+            />
           </motion.div>
         </div>
       </div>

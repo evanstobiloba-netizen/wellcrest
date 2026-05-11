@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../sections/Footer'
 import { ArrowLeft, ArrowRight, MapPin, Phone, Mail, Video, Building2, Clock, CheckCircle, Star, ExternalLink } from 'lucide-react'
 import { motion } from 'framer-motion'
-import CalendlyModal from '../components/CalendlyModal'
+import { useCalendly } from '../components/CalendlyModal'
 
 const locationData = {
   georgia: {
@@ -15,7 +15,7 @@ const locationData = {
     phone: '470-481-2034',
     fax: '470-481-2577',
     email: 'info@wellcresttherapy.com',
-    services: ['Psychiatric Evaluations', 'Individual Therapy', 'Group Therapy', 'Medication Management', 'Primary Care Visits', 'Chronic Disease Management', 'Preventive Screenings', 'Lab Work & Testing'],
+    services: ['Psychiatric Evaluations', 'Medication Management', 'Primary Care Visits', 'Chronic Disease Management', 'Preventive Screenings', 'Lab Work, Testing & Treatment', 'ADHD', 'Depression', 'Bipolar Disorder', 'Anxiety', 'Telehealth'],
     hours: {
       monday: '8:00 AM - 5:00 PM',
       tuesday: '8:00 AM - 5:00 PM',
@@ -26,7 +26,7 @@ const locationData = {
       sunday: 'Closed'
     },
     features: ['Full In-Person Services', 'Telehealth Available', 'Free Parking', 'Wheelchair Accessible', 'Private Waiting Areas', 'On-site Lab Services'],
-    description: 'Our Georgia location offers both in-person and telehealth services in the Atlanta metro area. Located in Stonecrest, we serve patients from throughout the greater Atlanta region with comprehensive mental health and primary care services.',
+    description: 'Our Georgia location offers both in-person and telehealth services in the Atlanta metro area. Located in Stonecrest, we serve patients from 16-80 yrs old with comprehensive mental health and primary care services.',
     mapUrl: 'https://maps.google.com/?q=7910+Mall+Ring+Road+Suite+200+Stonecrest+GA+30038',
     stateLicense: 'Licensed to practice in Georgia'
   },
@@ -38,7 +38,7 @@ const locationData = {
     phone: '470-481-2034',
     fax: '470-481-2577',
     email: 'info@wellcresttherapy.com',
-    services: ['Psychiatric Evaluations', 'Individual Therapy', 'Medication Management', 'Cognitive Behavioral Therapy', 'Anxiety & Depression Treatment', 'Stress Management', 'Follow-up Visits'],
+    services: ['Psychiatric Evaluations', 'Medication Management', 'Cognitive Behavioral Therapy', 'Anxiety & Depression Treatment', 'Stress Management', 'Follow-up Visits', 'Telehealth'],
     hours: {
       monday: '8:00 AM - 5:00 PM',
       tuesday: '8:00 AM - 5:00 PM',
@@ -61,7 +61,7 @@ const locationData = {
     phone: '470-481-2034',
     fax: '470-481-2577',
     email: 'info@wellcresttherapy.com',
-    services: ['Psychiatric Evaluations', 'Individual Therapy', 'Medication Management', 'Trauma-Informed Care', 'ADHD Assessment & Treatment', 'Mood Disorder Management', 'Follow-up Visits'],
+    services: ['Psychiatric Evaluations', 'Medication Management', 'ADHD Assessment & Treatment', 'Mood Disorder Management', 'Follow-up Visits', 'Telehealth'],
     hours: {
       monday: '8:00 AM - 5:00 PM',
       tuesday: '8:00 AM - 5:00 PM',
@@ -81,12 +81,11 @@ const locationData = {
 export default function LocationDetail() {
   const { location: locationId } = useParams()
   const location = locationData[locationId] || locationData.georgia
-  const [showCalendly, setShowCalendly] = React.useState(false)
+  const calendly = useCalendly()
 
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <CalendlyModal open={showCalendly} onClose={() => setShowCalendly(false)} />
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-brand/5 via-white to-brand-teal/5 pt-28 pb-16">
@@ -108,7 +107,7 @@ export default function LocationDetail() {
           </motion.div>
 
           <div className="flex flex-wrap gap-4">
-            <button onClick={() => setShowCalendly(true)} className="btn-primary">
+            <button onClick={calendly.open} className="btn-primary">
               Book Appointment
             </button>
             {location.mapUrl && (
@@ -247,7 +246,7 @@ export default function LocationDetail() {
                     </div>
                   </div>
                 </div>
-                <button onClick={() => setShowCalendly(true)} className="btn-primary w-full mt-6">
+                <button onClick={calendly.open} className="btn-primary w-full mt-6">
                   Book Now
                 </button>
               </div>
@@ -261,7 +260,7 @@ export default function LocationDetail() {
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Start Your Journey?</h2>
           <p className="text-white/80 mb-8 max-w-xl mx-auto">Our compassionate team is here to support your mental health and wellness needs.</p>
-          <button onClick={() => setShowCalendly(true)} className="inline-flex items-center gap-2 px-8 py-4 bg-white text-brand rounded-xl font-semibold hover:bg-white/90 transition-all">
+          <button onClick={calendly.open} className="inline-flex items-center gap-2 px-8 py-4 bg-white text-brand rounded-xl font-semibold hover:bg-white/90 transition-all">
             Book Appointment <ArrowRight className="w-5 h-5" />
           </button>
         </div>

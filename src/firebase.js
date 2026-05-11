@@ -23,7 +23,7 @@ export const defaultContent = {
     title: 'Mental Health & Primary Care.',
     subtitle: 'Compassionate, evidence-based care delivered with convenience and affordability. In-person in Georgia. Telehealth across Georgia, Arizona, and Maryland.',
     ctaPrimary: 'Book Appointment',
-    ctaSecondary: 'Explore Services',
+    ctaSecondary: 'About Us',
   },
   services: [
     { id: 1, title: 'Mental Health Services', shortDesc: 'Personalized therapy & psychiatric care', description: 'Comprehensive mental health services including therapy, psychiatric evaluations, and medication management.', icon: 'Brain' },

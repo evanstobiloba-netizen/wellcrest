@@ -7,6 +7,7 @@ import Services from '../sections/Services'
 import Locations from '../sections/Locations'
 import Why from '../sections/Why'
 import Genesight from '../sections/Genesight'
+import DoctorBio from '../components/DoctorBio'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, MapPin, Video, Shield, Heart, Star, Zap, Brain, Users, Calendar, Activity, HeartPulse, Stethoscope, Mic } from 'lucide-react'
@@ -34,6 +35,7 @@ export default function Home(){
     <div className="min-h-screen bg-white text-slate-900">
       <Navbar />
       <Hero hero={hero} />
+      <DoctorBio />
       <Services services={services} />
       <Locations />
       <Why />
@@ -95,8 +97,8 @@ function Hero({ hero }){
               className="flex flex-col sm:flex-row gap-3 mb-10"
             >
               <BookAppointmentButton />
-              <Link to="/services" className="btn-secondary flex items-center justify-center gap-2 text-base">
-                {hero.ctaSecondary || 'Explore Services'}
+              <Link to="/about" className="btn-secondary flex items-center justify-center gap-2 text-base">
+                {hero.ctaSecondary || 'About Us'}
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </motion.div>

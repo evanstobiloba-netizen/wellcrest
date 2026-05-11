@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import { useSearchParams, Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../sections/Footer'
-import CalendlyModal from '../components/CalendlyModal'
 import { useCalendly } from '../components/CalendlyModal'
 import { motion } from 'framer-motion'
 import { ArrowLeft, Tag, Calendar, Mail, Send } from 'lucide-react'
 import { useContent } from '../context/ContentContext'
+import DoctorBio from '../components/DoctorBio'
 
 export default function BlogDetail() {
   const [searchParams] = useSearchParams()
@@ -111,8 +111,7 @@ export default function BlogDetail() {
         </div>
       </section>
 
-      <CalendlyModal isOpen={calendly.isOpen} onClose={calendly.close} />
-
+      <DoctorBio />
       <Footer />
     </div>
   )

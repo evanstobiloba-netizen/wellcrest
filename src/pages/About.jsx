@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import DoctorBio from '../components/DoctorBio'
 import { Brain, Heart, Video, Shield, Users, Clock, MapPin, Phone, Mail, ArrowRight, Award, CheckCircle } from 'lucide-react'
 
 export default function About(){
@@ -48,11 +49,8 @@ export default function About(){
               <h2 className="text-3xl font-bold text-[#0A2540]">
                 Our Mission
               </h2>
-              <p className="text-[#5A6A7A]">
-                WellCrest Health is committed to helping patients achieve their mental health goals through patient-centered care and evidence-based treatments throughout their lives. We believe that everyone deserves access to quality mental health care in a supportive and understanding environment.
-              </p>
-              <p className="text-[#5A6A7A]">
-                Our team brings decades of experience to the table, ensuring that every patient receives the highest standard of care. We treat each individual with respect, dignity, and compassion.
+              <p className="text-[#5A6A7A] leading-relaxed">
+                WellCrest Health is committed to helping individuals achieve optimal health and well-being through compassionate, patient-centered care that integrates both medical and mental health services. We provide evidence-based treatments across the lifespan, recognizing the connection between physical and emotional health. We believe everyone deserves access to high-quality, comprehensive care in a supportive, respectful, and understanding environment.
               </p>
             </motion.div>
             <motion.div 
@@ -85,6 +83,8 @@ export default function About(){
           </div>
         </div>
       </section>
+
+      <DoctorBio />
 
       {/* Why Choose Us */}
       <section className="py-16">

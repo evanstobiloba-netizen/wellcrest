@@ -2,12 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../sections/Footer'
-import CalendlyModal from '../components/CalendlyModal'
+import { useCalendly } from '../components/CalendlyModal'
 import { MapPin, Video, Building2, ArrowRight, CheckCircle } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 export default function LocationsPage(){
-  const [showCalendly, setShowCalendly] = React.useState(false)
+  const calendly = useCalendly()
 
   const locations = [
     {
@@ -42,7 +42,6 @@ export default function LocationsPage(){
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <CalendlyModal open={showCalendly} onClose={() => setShowCalendly(false)} />
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-brand/5 via-white to-brand-teal/5 pt-28 pb-16">
@@ -132,7 +131,7 @@ export default function LocationsPage(){
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Ready to Book an Appointment?</h2>
           <p className="text-white/80 mb-8 max-w-2xl mx-auto">Schedule your visit today and start your journey to better health.</p>
-          <button onClick={() => setShowCalendly(true)} className="inline-flex items-center gap-2 bg-white text-brand px-6 py-3 rounded-xl font-medium hover:bg-white/90 transition-colors">
+          <button onClick={calendly.open} className="inline-flex items-center gap-2 bg-white text-brand px-6 py-3 rounded-xl font-medium hover:bg-white/90 transition-colors">
             Book Appointment <ArrowRight className="w-5 h-5" />
           </button>
         </div>

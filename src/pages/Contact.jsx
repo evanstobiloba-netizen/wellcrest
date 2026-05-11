@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../sections/Footer'
-import CalendlyModal from '../components/CalendlyModal'
+import { useCalendly } from '../components/CalendlyModal'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Brain, Heart, Video, Shield, Users, Clock, MapPin, Phone, Mail, ArrowRight, Send, Clock3, Calendar } from 'lucide-react'
+import DoctorBio from '../components/DoctorBio'
 
 export default function Contact(){
+  const calendly = useCalendly()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,7 +16,7 @@ export default function Contact(){
     service: '',
     message: ''
   })
-  const [calendlyOpen, setCalendlyOpen] = useState(false)
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -196,7 +198,7 @@ export default function Contact(){
                 <p className="text-white/80 text-sm mb-4">
                   If you're experiencing a mental health emergency, please call 911 or go to your nearest emergency room.
                 </p>
-                <button onClick={() => setCalendlyOpen(true)} className="inline-flex items-center gap-2 bg-white text-brand px-4 py-2 rounded-xl font-medium text-sm">
+                <button onClick={calendly.open} className="inline-flex items-center gap-2 bg-white text-brand px-4 py-2 rounded-xl font-medium text-sm">
                   Book Appointment <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
@@ -205,8 +207,7 @@ export default function Contact(){
         </div>
       </section>
 
-      <CalendlyModal isOpen={calendlyOpen} onClose={() => setCalendlyOpen(false)} />
-
+      <DoctorBio />
       <Footer />
     </div>
   )

@@ -6,13 +6,13 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 export const supabase = createClient(supabaseUrl, supabaseKey)
 
 export const defaultContent = {
-  _version: 3,
+  _version: 4,
   hero: {
     badge: 'YOUR HEALTH, OUR PRIORITY',
     title: 'Mental Health & Primary Care.',
     subtitle: 'Compassionate, evidence-based care delivered with convenience and affordability. In-person in Georgia. Telehealth across Georgia, Arizona, and Maryland.',
     ctaPrimary: 'Book Appointment',
-    ctaSecondary: 'Explore Services',
+    ctaSecondary: 'About Us',
   },
   services: [
     { id: 1, title: 'Mental Health Services', shortDesc: 'Personalized therapy & psychiatric care', description: 'Comprehensive mental health services including therapy, psychiatric evaluations, and medication management.', icon: 'Brain' },
@@ -32,9 +32,9 @@ export const defaultContent = {
     hours: 'Mon-Fri: 8am-5pm',
   },
   blogPosts: [
-    { id: 1, title: 'Understanding Anxiety: Signs and Coping Strategies', content: 'Learn about the common signs of anxiety and effective strategies to manage it in your daily life. From recognizing early warning signs to implementing proven coping techniques, this guide helps you take control of your mental health journey.', date: '2025-04-15', category: 'Mental Health', image: 'https://images.unsplash.com/photo-1493982305306-a5a2df364595?w=1200&h=600&fit=crop' },
-    { id: 2, title: 'The Benefits of Telehealth for Mental Health', content: 'Discover how virtual therapy can provide convenient and effective care.', date: '2025-04-10', category: 'Telehealth', image: 'https://images.unsplash.com/photo-1576091160399-1128b0bbd1be?w=800&h=400&fit=crop' },
-    { id: 3, title: 'Managing Stress in Daily Life', content: 'Practical tips for reducing stress and improving your well-being.', date: '2025-04-05', category: 'Wellness', image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&h=400&fit=crop' },
+    { id: 1, title: 'Understanding Anxiety: Signs and Coping Strategies', content: 'Learn about the common signs of anxiety and effective strategies to manage it in your daily life. From recognizing early warning signs to implementing proven coping techniques, this guide helps you take control of your mental health journey.', date: '2025-04-15', category: 'Mental Health', readTime: '5 min read', image: 'https://images.unsplash.com/photo-1493982305306-a5a2df364595?w=1200&h=600&fit=crop' },
+    { id: 2, title: 'The Benefits of Telehealth for Mental Health', content: 'Discover how virtual therapy can provide convenient and effective care from the comfort of your home.', date: '2025-04-10', category: 'Telehealth', readTime: '4 min read', image: 'https://images.unsplash.com/photo-1576091160399-1128b0bbd1be?w=1200&h=600&fit=crop' },
+    { id: 3, title: 'Managing Stress in Daily Life', content: 'Practical tips for reducing stress and improving your well-being.', date: '2025-04-05', category: 'Wellness', readTime: '3 min read', image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&h=600&fit=crop' },
   ],
   newsletters: [
     { id: 1, title: 'April 2025 Newsletter', subject: 'Mental Health Awareness Month', sentDate: '2025-04-01', recipients: 150, status: 'sent' },

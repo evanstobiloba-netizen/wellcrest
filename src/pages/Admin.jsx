@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { 
   Home, FileText, MapPin, Users, LogOut, Edit, Plus, Trash2,
-  Phone, BookOpen, Send, Lock, X, Menu, Save
+  Phone, BookOpen, Send, Lock, X, Menu, Save, ArrowLeft, ArrowRight
 } from 'lucide-react'
 import { ContentProvider, useContent } from '../context/ContentContext'
 
@@ -274,6 +274,8 @@ function ContactEditor({ content, onUpdate }) {
 }
 
 function BlogPostsEditor({ content, onUpdate }) {
+  const [editingPost, setEditingPost] = useState(null)
+
   const addPost = () => {
     const newPost = {
       id: Date.now(),
@@ -281,35 +283,44 @@ function BlogPostsEditor({ content, onUpdate }) {
       content: 'Write your full blog post content here...',
       date: new Date().toISOString().split('T')[0],
       category: 'Mental Health',
+      readTime: '3 min read',
       image: ''
     }
     onUpdate([...content, newPost])
+    setEditingPost(newPost)
   }
 
   const updatePost = (id, field, value) => {
     onUpdate(content.map(p => p.id === id ? { ...p, [field]: value } : p))
+    setEditingPost(prev => prev && prev.id === id ? { ...prev, [field]: value } : prev)
   }
 
   const deletePost = (id) => {
     if (confirm('Delete this post?')) {
       onUpdate(content.filter(p => p.id !== id))
+      if (editingPost?.id === id) setEditingPost(null)
     }
   }
 
-  return (
-    <div className="space-y-4">
-      <button onClick={addPost} className="flex items-center gap-2 px-4 py-2 bg-brand text-white rounded-xl">
-        <Plus className="w-4 h-4" /> Add Post
-      </button>
-      {content.map((post) => (
-        <div key={post.id} className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+  if (editingPost) {
+    return (
+      <div>
+        <div className="flex items-center justify-between mb-6">
+          <button onClick={() => setEditingPost(null)} className="flex items-center gap-2 text-slate-500 hover:text-slate-700">
+            <ArrowLeft className="w-4 h-4" /> Back to list
+          </button>
+          <button onClick={() => deletePost(editingPost.id)} className="flex items-center gap-2 px-4 py-2 text-red-500">
+            <Trash2 className="w-4 h-4" /> Delete
+          </button>
+        </div>
+        <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">Title</label>
               <input 
                 type="text" 
-                value={post.title}
-                onChange={(e) => updatePost(post.id, 'title', e.target.value)}
+                value={editingPost.title}
+                onChange={(e) => updatePost(editingPost.id, 'title', e.target.value)}
                 className="w-full px-4 py-3 rounded-xl border border-slate-200"
               />
             </div>
@@ -317,8 +328,8 @@ function BlogPostsEditor({ content, onUpdate }) {
               <label className="block text-sm font-medium text-slate-700 mb-2">Category</label>
               <input 
                 type="text" 
-                value={post.category}
-                onChange={(e) => updatePost(post.id, 'category', e.target.value)}
+                value={editingPost.category}
+                onChange={(e) => updatePost(editingPost.id, 'category', e.target.value)}
                 className="w-full px-4 py-3 rounded-xl border border-slate-200"
               />
             </div>
@@ -326,19 +337,28 @@ function BlogPostsEditor({ content, onUpdate }) {
           <div className="mt-4">
             <label className="block text-sm font-medium text-slate-700 mb-2">Full Blog Post Content</label>
             <textarea 
-              value={post.content}
-              onChange={(e) => updatePost(post.id, 'content', e.target.value)}
-              rows={10}
+              value={editingPost.content}
+              onChange={(e) => updatePost(editingPost.id, 'content', e.target.value)}
+              rows={12}
               className="w-full px-4 py-3 rounded-xl border border-slate-200"
             />
           </div>
-          <div className="grid grid-cols-2 gap-4 mt-4">
+          <div className="grid grid-cols-3 gap-4 mt-4">
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">Date</label>
               <input 
                 type="date" 
-                value={post.date}
-                onChange={(e) => updatePost(post.id, 'date', e.target.value)}
+                value={editingPost.date}
+                onChange={(e) => updatePost(editingPost.id, 'date', e.target.value)}
+                className="w-full px-4 py-3 rounded-xl border border-slate-200"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-slate-700 mb-2">Read Time</label>
+              <input 
+                type="text" 
+                value={editingPost.readTime || '3 min read'}
+                onChange={(e) => updatePost(editingPost.id, 'readTime', e.target.value)}
                 className="w-full px-4 py-3 rounded-xl border border-slate-200"
               />
             </div>
@@ -346,16 +366,43 @@ function BlogPostsEditor({ content, onUpdate }) {
               <label className="block text-sm font-medium text-slate-700 mb-2">Image URL</label>
               <input 
                 type="text" 
-                value={post.image || ''}
-                onChange={(e) => updatePost(post.id, 'image', e.target.value)}
+                value={editingPost.image || ''}
+                onChange={(e) => updatePost(editingPost.id, 'image', e.target.value)}
                 placeholder="https://..."
                 className="w-full px-4 py-3 rounded-xl border border-slate-200"
               />
+              {editingPost.image && (
+                <img src={editingPost.image} alt="" className="mt-2 w-32 h-20 object-cover rounded-lg border" onError={(e) => e.target.style.display='none'} />
+              )}
             </div>
           </div>
-          <button onClick={() => deletePost(post.id)} className="mt-4 flex items-center gap-2 px-4 py-2 text-red-500">
-            <Trash2 className="w-4 h-4" /> Delete
-          </button>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="space-y-4">
+      <button onClick={addPost} className="flex items-center gap-2 px-4 py-2 bg-brand text-white rounded-xl">
+        <Plus className="w-4 h-4" /> Add Post
+      </button>
+      {content.length === 0 && (
+        <p className="text-slate-400 text-sm">No blog posts yet. Click "Add Post" to create one.</p>
+      )}
+      {content.map((post) => (
+        <div 
+          key={post.id} 
+          onClick={() => setEditingPost(post)}
+          className="bg-white rounded-2xl p-4 shadow-sm border border-slate-200 hover:border-brand cursor-pointer transition-all flex items-center gap-4"
+        >
+          {post.image && (
+            <img src={post.image} alt="" className="w-16 h-16 rounded-xl object-cover shrink-0" onError={(e) => e.target.style.display='none'} />
+          )}
+          <div className="flex-1 min-w-0">
+            <h3 className="font-semibold text-slate-900 truncate">{post.title}</h3>
+            <p className="text-sm text-slate-500 truncate">{post.category} · {post.date}</p>
+          </div>
+          <ArrowRight className="w-5 h-5 text-slate-300 shrink-0" />
         </div>
       ))}
     </div>

@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronDown, Phone, Mail } from 'lucide-react'
 import Logo from './Logo'
-import CalendlyModal from './CalendlyModal'
 import { useCalendly } from './CalendlyModal'
 
 export default function Navbar(){
@@ -230,7 +229,6 @@ export default function Navbar(){
           </motion.div>
         )}
       </AnimatePresence>
-      <CalendlyModal isOpen={calendly.isOpen} onClose={calendly.close} />
     </nav>
   )
 }

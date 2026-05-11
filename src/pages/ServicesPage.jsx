@@ -3,24 +3,38 @@ import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../sections/Footer'
 import BookAppointmentButton from '../components/BookAppointmentButton'
-import { Brain, Stethoscope, ArrowRight, MapPin, Phone, Video } from 'lucide-react'
+import { Brain, Stethoscope, Activity, Heart, Thermometer, ArrowRight, MapPin, Phone, Video } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 export default function ServicesPage(){
   const serviceCategories = [
     {
+      title: 'Chronic Disease Management',
+      description: 'Comprehensive care for hypertension, diabetes, and other chronic conditions with personalized treatment plans.',
+      icon: Activity,
+      href: '/services/chronic-disease',
+      servicesCount: 10
+    },
+    {
+      title: 'Preventive Care',
+      description: 'Annual physicals, immunizations, screenings, and wellness visits to keep you healthy.',
+      icon: Heart,
+      href: '/services/preventive-care',
+      servicesCount: 11
+    },
+    {
+      title: 'Acute Care',
+      description: 'Same-day treatment for colds, STIs, UTIs, respiratory infections, and other immediate health concerns.',
+      icon: Thermometer,
+      href: '/services/acute-care',
+      servicesCount: 10
+    },
+    {
       title: 'Mental Health Services',
-      description: 'Comprehensive mental health care including depression, anxiety, bipolar disorder, PTSD, and more.',
+      description: 'Comprehensive mental health care including depression, anxiety, PTSD, therapy, and medication management.',
       icon: Brain,
       href: '/services/mental-health',
       servicesCount: 7
-    },
-    {
-      title: 'Primary Health Services',
-      description: 'Primary care services focusing on preventive health, chronic disease management, and overall wellness.',
-      icon: Stethoscope,
-      href: '/services/primary-health',
-      servicesCount: 3
     }
   ]
 
