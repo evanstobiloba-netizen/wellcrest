@@ -35,8 +35,7 @@ function loadFromStorage() {
   try {
     const saved = localStorage.getItem(STORAGE_KEY)
     if (saved) {
-      const { parsed } = migrateContent(JSON.parse(saved))
-      return parsed
+      return JSON.parse(saved)
     }
   } catch (e) {
     console.warn('localStorage parse failed:', e)
@@ -45,50 +44,51 @@ function loadFromStorage() {
 }
 
 export function ContentProvider({ children }) {
-  const [content, setContent] = useState(() => loadFromStorage() || defaultContent)
+  const [content, setContent] = useState(null)
   const [loading, setLoading] = useState(true)
 
-  // Sync from Supabase on mount (background)
+  // Load content: Supabase first, fallback to localStorage, then default
   useEffect(() => {
     let mounted = true
-    async function sync() {
+    async function load() {
       try {
         const data = await fetchContent()
-        if (mounted && data) {
-          const { parsed } = migrateContent(data)
+        if (mounted) {
+          const { parsed } = migrateContent(data || {})
           setContent(parsed)
           localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed))
         }
       } catch (e) {
-        console.warn('Supabase sync failed, using cached:', e)
+        console.warn('Supabase fetch failed:', e)
+        // Fallback to localStorage
+        const cached = loadFromStorage()
+        if (mounted) {
+          setContent(cached ? migrateContent(cached).parsed : defaultContent)
+        }
       }
       if (mounted) setLoading(false)
     }
-    sync()
+    load()
     return () => { mounted = false }
   }, [])
 
   // Subscribe to real-time changes
   useEffect(() => {
-    let mounted = true
     let channel
     async function subscribe() {
       try {
         const { subscribeToContent, supabase } = await import('../supabase')
         channel = subscribeToContent((data) => {
-          if (mounted && data) {
+          if (data) {
             const { parsed } = migrateContent(data)
             setContent(parsed)
             localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed))
           }
         })
-      } catch (e) {
-        // Real-time not critical
-      }
+      } catch (e) {}
     }
     subscribe()
     return () => {
-      mounted = false
       if (channel) {
         import('../supabase').then(({ supabase }) => supabase.removeChannel(channel))
       }
@@ -102,7 +102,7 @@ export function ContentProvider({ children }) {
     try {
       await saveToSupabase(newContent)
     } catch (e) {
-      console.warn('Supabase save failed, cached locally:', e)
+      console.warn('Supabase save failed:', e)
     }
   }
 
