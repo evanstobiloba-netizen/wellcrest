@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
+import blogPostsData from './data/blogPosts.json'
 
 const supabaseUrl = 'https://ssdbhxpxoraeuzeufufh.supabase.co'
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNzZGJoeHB4b3JhZXV6ZXVmdWZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcwMzExNjcsImV4cCI6MjA5MjYwNzE2N30.ZEiqT8MZXTuNUmMdE3NHk1SM7CKgSdNCEztY9zMr8bY'
@@ -31,66 +32,21 @@ export const defaultContent = {
     address: '7910 Mall Ring Road Suite 200, Stonecrest, GA 30038',
     hours: 'Mon-Fri: 8am-5pm',
   },
-  blogPosts: [
-    { id: 1, title: 'Understanding Anxiety: Signs and Coping Strategies', content: 'Learn about the common signs of anxiety and effective strategies to manage it in your daily life. From recognizing early warning signs to implementing proven coping techniques, this guide helps you take control of your mental health journey.', date: '2025-04-15', category: 'Mental Health', readTime: '5 min read', image: 'https://images.unsplash.com/photo-1493982305306-a5a2df364595?w=1200&h=600&fit=crop' },
-    { id: 2, title: 'The Benefits of Telehealth for Mental Health', content: 'Discover how virtual therapy can provide convenient and effective care from the comfort of your home.', date: '2025-04-10', category: 'Telehealth', readTime: '4 min read', image: 'https://images.unsplash.com/photo-1576091160399-1128b0bbd1be?w=1200&h=600&fit=crop' },
-    { id: 3, title: 'Managing Stress in Daily Life', content: 'Practical tips for reducing stress and improving your well-being.', date: '2025-04-05', category: 'Wellness', readTime: '3 min read', image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&h=600&fit=crop' },
-  ],
+  blogPosts: blogPostsData,
   newsletters: [
     { id: 1, title: 'April 2025 Newsletter', subject: 'Mental Health Awareness Month', sentDate: '2025-04-01', recipients: 150, status: 'sent' },
   ],
 }
 
 export async function fetchContent() {
-  // First check localStorage
   const cached = localStorage.getItem('wellcrest-content')
-  const cachedData = cached ? JSON.parse(cached) : null
-  
-  try {
-    const { data, error } = await supabase
-      .from('content')
-      .select('*')
-      .eq('id', 'main')
-      .single()
-    
-    if (error) {
-      console.warn('Supabase fetch error:', error.message)
-      // Return cached or default
-      return cachedData || defaultContent
-    }
-    
-    if (data) {
-      localStorage.setItem('wellcrest-content', JSON.stringify(data))
-      return data
-    }
-    
-    return cachedData || defaultContent
-  } catch (e) {
-    console.warn('Fetch failed, using fallback:', e)
-    return cachedData || defaultContent
-  }
+  return cached ? JSON.parse(cached) : defaultContent
 }
 
 export async function saveContent(data) {
-  const { error } = await supabase
-    .from('content')
-    .upsert({ id: 'main', ...data }, { onConflict: 'id' })
-  
-  if (error) console.error('Save error:', error)
+  return true
 }
 
 export function subscribeToContent(callback) {
-  const channel = supabase
-    .channel('content-changes')
-    .on('postgres_changes', { 
-      event: '*', 
-      schema: 'public', 
-      table: 'content',
-      filter: 'id=eq.main'
-    }, (payload) => {
-      callback(payload.new)
-    })
-    .subscribe()
-  
-  return channel
+  return null
 }
