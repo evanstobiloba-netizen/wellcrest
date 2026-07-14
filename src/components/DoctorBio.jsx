@@ -41,7 +41,7 @@ export default function DoctorBio() {
 
             <div className="space-y-4 text-slate-600 leading-relaxed">
               <p>
-                Dr. Oladunni Faminu is a doctorate-prepared Advanced Practice Nurse Practitioner with over 20 years of clinical experience. She holds dual certification as both a Psychiatric Mental Health Nurse Practitioner (PMHNP) and a Family Nurse Practitioner (FNP) — a rare combination that allows her to provide genuinely integrated care across mental health and primary medicine.
+                Dr. Oladunni Faminu is a doctorate-prepared Advanced Practice Nurse Practitioner with over 20 years of clinical experience. She holds dual certification as both a Psychiatric Mental Health Nurse Practitioner (PMHNP) and a Family Nurse Practitioner (FNP) — which enables her to provide comprehensive, coordinated mental health care.
               </p>
               <p>
                 Dr. Faminu earned her Doctor of Nursing Practice (DNP) with a postgraduate specialization in Psychiatric Mental Health from Frontier Nursing University in Kentucky, and her Master of Science in Nursing as a Family Nurse Practitioner from South University in Savannah, Georgia.

@@ -34,9 +34,9 @@ const TestimonialCard = ({name, text, role, delay}) => (
 
 export default function Testimonials(){
   const testimonials = [
-    {name: 'Alex P.', text: 'WellCrest transformed my care—clear, concise, and easy to navigate. The best healthcare experience I have ever had.', role: 'Patient since 2023' },
+    {name: 'Alex P.', text: 'WellCrest transformed my care—clear, concise, and easy to navigate. The best wellness experience I have ever had.', role: 'Patient since 2023' },
     {name: 'Jamie K.', text: 'Telehealth is seamless. The provider team feels premium and genuinely cares about your well-being.', role: 'Telehealth Patient' },
-    {name: 'Priya S.', text: 'Thoughtful, data-backed care with real empathy. Finally found a practice that understands integrated health.', role: 'Primary Care Patient' },
+    {name: 'Priya S.', text: 'Thoughtful, data-backed care with real empathy. Finally found a practice that understands coordinated wellness.', role: 'Mental Health Patient' },
   ]
   return (
     <motion.section id="testimonials" className="py-16 sm:py-20 lg:py-32 bg-[#F7F9FC]" aria-label="Testimonials" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>

@@ -74,7 +74,7 @@ export default function ServiceAcuteCare() {
                   {[
                     { title: 'Rapid Assessment', desc: 'Quick evaluation to determine the best treatment plan' },
                     { title: 'Same-Day Appointments', desc: 'Get care when you need it most' },
-                    { title: 'Prescription Management', desc: 'Fast prescriptions sent directly to your pharmacy' },
+                    { title: 'Care Coordination', desc: 'Coordinated support sent directly to your care team' },
                     { title: 'Follow-Up Care', desc: 'We ensure your treatment is working effectively' }
                   ].map((item, idx) => (
                     <div key={idx} className="p-4 bg-slate-50 rounded-xl">

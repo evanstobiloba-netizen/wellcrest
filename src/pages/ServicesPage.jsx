@@ -31,7 +31,7 @@ export default function ServicesPage(){
     },
     {
       title: 'Mental Health Services',
-      description: 'Comprehensive mental health care including depression, anxiety, PTSD, therapy, and medication management.',
+      description: 'Comprehensive mental health care including depression, anxiety, PTSD, therapy, and holistic therapy support.',
       icon: Brain,
       href: '/services/mental-health',
       servicesCount: 7

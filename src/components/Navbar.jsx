@@ -24,12 +24,12 @@ export default function Navbar(){
     { label: 'Home', href: '/' },
     { label: 'About Us', href: '/about' },
     { 
-      label: 'Services', 
+      label: 'Services',
       href: '/services',
       hasDropdown: true,
       dropdown: [
         { label: 'Mental Health', href: '/services/mental-health' },
-        { label: 'Primary Health', href: '/services/primary-health' },
+        { label: 'Wellness', href: '/services/primary-health' },
       ]
     },
     { 

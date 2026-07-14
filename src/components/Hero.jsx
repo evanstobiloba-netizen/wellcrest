@@ -42,11 +42,11 @@ export default function Hero(){
                 Mental Health
               </span>
               <span className="text-slate-900">
-                & Primary Care.
+                & Comprehensive Mental Wellness.
               </span>
               <br />
               <span className="text-transparent bg-clip-text from-brand-navy">
-                Primary Care.
+                Comprehensive Mental Wellness.
               </span>
             </motion.h1>
             
@@ -57,7 +57,7 @@ export default function Hero(){
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-base sm:text-lg text-slate-500 max-w-xl mb-8 leading-relaxed"
             >
-              WellCrest Health delivers compassionate, evidence-based care across mental health and primary medicine. In-person in Georgia. Telehealth across Georgia, Arizona, and Maryland.
+              WellCrest Health delivers compassionate, evidence-based care across mental health and wellness. In-person in Georgia. Telehealth across Georgia, Arizona, and Maryland.
             </motion.p>
 
             {/* CTAs */}

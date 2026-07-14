@@ -35,11 +35,11 @@ const FeatureCard = ({icon, title, desc, delay}) => {
 export default function Why(){
   const features = [
     { icon: 'clinical', title: 'Clinical Excellence', desc: 'Evidence-based approaches backed by latest research and best practices.' },
-    { icon: 'integrated', title: 'Integrated Care', desc: 'Mental health and primary care services under one roof.' },
+    { icon: 'integrated', title: 'Coordinated Support', desc: 'Comprehensive mental wellness and coordinated support services.' },
     { icon: 'telehealth', title: 'Telehealth Access', desc: 'Secure video consultations available across all served states.' },
-    { icon: 'certified', title: 'Dual Certification', desc: 'Board-certified providers in both psychiatry and primary care.' },
+    { icon: 'certified', title: 'Dual Certification', desc: 'Board-certified providers with broad clinical expertise.' },
     { icon: 'secure', title: 'Data Security', desc: 'HIPAA-compliant systems protecting your health information.' },
-    { icon: 'premium', title: 'Premium Experience', desc: 'Modern, technology-forward healthcare experience.' },
+    { icon: 'premium', title: 'Premium Experience', desc: 'Modern, technology-forward wellness experience.' },
   ]
   
   const stats = [
@@ -61,8 +61,8 @@ export default function Why(){
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         <motion.div className="text-center mb-10 sm:mb-14 lg:mb-16" variants={item}>
           <span className="inline-block font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] text-brand mb-3 sm:mb-4 px-3 py-1.5 rounded-full bg-brand/10">Why Choose Us</span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold tracking-tight text-slate-900">Healthcare, Reimagined</h2>
-          <p className="mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg text-slate-500 max-w-2xl mx-auto">A modern approach to mental and primary health that puts you at the center.</p>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold tracking-tight text-slate-900">Wellness, Reimagined</h2>
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg text-slate-500 max-w-2xl mx-auto">A modern approach to mental health and wellness that puts you at the center.</p>
         </motion.div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 mb-12 sm:mb-16">

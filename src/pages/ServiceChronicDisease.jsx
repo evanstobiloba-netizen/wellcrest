@@ -45,7 +45,7 @@ export default function ServiceChronicDisease() {
                   Living with a chronic condition requires ongoing, coordinated care. At WellCrest Health, we provide comprehensive management for chronic diseases including hypertension (high blood pressure), diabetes, asthma, and more. Our approach focuses on prevention, early intervention, and personalized treatment plans.
                 </p>
                 <p className="text-slate-600 mb-8 leading-relaxed">
-                  We work closely with you to monitor your condition, adjust medications as needed, and provide lifestyle counseling to help you maintain the best possible quality of life.
+                  We work closely with you to monitor your condition, adjust treatment plans as needed, and provide lifestyle counseling to help you maintain the best possible quality of life.
                 </p>
 
                 <h3 className="text-xl font-bold text-slate-900 mb-4">Conditions We Manage</h3>
@@ -73,7 +73,7 @@ export default function ServiceChronicDisease() {
                 <div className="space-y-4 mb-8">
                   {[
                     { title: 'Regular Monitoring', desc: 'Scheduled check-ups to track your progress and adjust treatment plans' },
-                    { title: 'Medication Management', desc: 'Careful review and adjustment of medications to optimize effectiveness' },
+                    { title: 'Holistic Therapy Support', desc: 'Careful review and adjustment of treatment plans to optimize effectiveness' },
                     { title: 'Lifestyle Counseling', desc: 'Guidance on diet, exercise, and stress management techniques' },
                     { title: 'Care Coordination', desc: 'Working with specialists to ensure comprehensive care' }
                   ].map((item, idx) => (

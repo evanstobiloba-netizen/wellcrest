@@ -22,7 +22,7 @@ const heroStats = [
 
 const heroFeatures = [
   { icon: HeartPulse, title: 'Mental Health', desc: 'Personalized therapy & psychiatric care' },
-  { icon: Stethoscope, title: 'Primary Care', desc: 'Comprehensive medical services' },
+  { icon: Stethoscope, title: 'Comprehensive Mental Wellness', desc: 'Supportive wellness services' },
   { icon: Mic, title: 'Telehealth', desc: 'Virtual visits in GA, AZ, MD' },
 ]
 
@@ -77,7 +77,7 @@ function Hero({ hero }){
               className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-5"
             >
               <span className="text-brand">
-                {hero.title || 'Mental Health & Primary Care.'}
+                {hero.title || 'Mental Health & Comprehensive Mental Wellness.'}
               </span>
             </motion.h1>
             

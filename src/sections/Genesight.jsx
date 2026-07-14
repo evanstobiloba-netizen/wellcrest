@@ -27,7 +27,7 @@ export default function Genesight(){
               Genesight
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold tracking-tight mb-5 sm:mb-6 text-slate-900">
-              Precision Mental & <span className="text-brand-navy">Medical Care</span>
+              Precision Mental & <span className="text-brand-navy">Wellness Support</span>
             </h2>
             <p className="text-sm sm:text-base lg:text-lg text-slate-500 mb-6 sm:mb-8 leading-relaxed">
               Integrated insights, tailored to you. A premium, tech-forward approach to health decisions powered by genetic testing and data-driven insights.

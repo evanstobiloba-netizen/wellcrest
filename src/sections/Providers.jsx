@@ -8,8 +8,8 @@ const ProviderBadge = ({children}) => (
 export default function Providers(){
   const provider = {
     name: 'Dr. Sarah Mitchell',
-    credentials: 'MD, Psychiatry & Internal Medicine',
-    bio: 'Board-certified psychiatrist and primary care physician with over 15 years of experience in integrated mental and medical healthcare. Dedicated to providing comprehensive, patient-centered care.',
+    credentials: 'MD, Psychiatry',
+    bio: 'Board-certified psychiatrist with over 15 years of experience in mental wellness. Dedicated to providing comprehensive, patient-centered care focused on wellness and recovery.',
     badges: ['Board Certified', 'Dual Specialty', 'HIPAA Compliant'],
   }
   return (

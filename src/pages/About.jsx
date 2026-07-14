@@ -50,7 +50,7 @@ export default function About(){
                 Our Mission
               </h2>
               <p className="text-[#5A6A7A] leading-relaxed">
-                WellCrest Health is committed to helping individuals achieve optimal health and well-being through compassionate, patient-centered care that integrates both medical and mental health services. We provide evidence-based treatments across the lifespan, recognizing the connection between physical and emotional health. We believe everyone deserves access to high-quality, comprehensive care in a supportive, respectful, and understanding environment.
+                WellCrest Health is committed to helping individuals achieve optimal health and well-being through compassionate, patient-centered care that integrates both mental health and wellness services. We provide evidence-based approaches across the lifespan, recognizing the connection between physical and emotional health. We believe everyone deserves access to high-quality, comprehensive care in a supportive, respectful, and understanding environment.
               </p>
             </motion.div>
             <motion.div 

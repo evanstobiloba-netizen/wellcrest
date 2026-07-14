@@ -10,14 +10,14 @@ export const defaultContent = {
   _version: 4,
   hero: {
     badge: 'YOUR HEALTH, OUR PRIORITY',
-    title: 'Mental Health & Primary Care.',
+    title: 'Mental Health & Comprehensive Mental Wellness.',
     subtitle: 'Compassionate, evidence-based care delivered with convenience and affordability. In-person in Georgia. Telehealth across Georgia, Arizona, and Maryland.',
     ctaPrimary: 'Book Appointment',
     ctaSecondary: 'About Us',
   },
   services: [
-    { id: 1, title: 'Mental Health Services', shortDesc: 'Personalized therapy & psychiatric care', description: 'Comprehensive mental health services including therapy, psychiatric evaluations, and medication management.', icon: 'Brain' },
-    { id: 2, title: 'Primary Care', shortDesc: 'Comprehensive medical services', description: 'Full-spectrum primary care for all ages, including preventive care and chronic disease management.', icon: 'Stethoscope' },
+    { id: 1, title: 'Mental Health Services', shortDesc: 'Personalized therapy & psychiatric care', description: 'Comprehensive mental health services including therapy, psychiatric evaluations, and holistic therapy support.', icon: 'Brain' },
+    { id: 2, title: 'Comprehensive Mental Wellness', shortDesc: 'Supportive wellness services', description: 'Comprehensive mental wellness services for all ages, including prevention and chronic condition support.', icon: 'Stethoscope' },
     { id: 3, title: 'Telehealth', shortDesc: 'Virtual visits in GA, AZ, MD', description: 'Convenient virtual appointments accessible from anywhere in our serving states.', icon: 'Video' },
   ],
   locations: [

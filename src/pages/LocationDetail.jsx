@@ -15,7 +15,7 @@ const locationData = {
     phone: '470-481-2034',
     fax: '470-481-2577',
     email: 'info@wellcresttherapy.com',
-    services: ['Psychiatric Evaluations', 'Medication Management', 'Primary Care Visits', 'Chronic Disease Management', 'Preventive Screenings', 'Lab Work, Testing & Treatment', 'ADHD', 'Depression', 'Bipolar Disorder', 'Anxiety', 'Telehealth'],
+    services: ['Psychiatric Evaluations', 'Holistic Therapy Support', 'Comprehensive Mental Wellness', 'Chronic Disease Management', 'Preventive Screenings', 'Lab Work, Testing & Treatment', 'ADHD', 'Depression', 'Bipolar Disorder', 'Anxiety', 'Telehealth'],
     hours: {
       monday: '8:00 AM - 5:00 PM',
       tuesday: '8:00 AM - 5:00 PM',
@@ -26,7 +26,7 @@ const locationData = {
       sunday: 'Closed'
     },
     features: ['Full In-Person Services', 'Telehealth Available', 'Free Parking', 'Wheelchair Accessible', 'Private Waiting Areas', 'On-site Lab Services'],
-    description: 'Our Georgia location offers both in-person and telehealth services in the Atlanta metro area. Located in Stonecrest, we serve patients from 16-80 yrs old with comprehensive mental health and primary care services.',
+    description: 'Our Georgia location offers both in-person and telehealth services in the Atlanta metro area. Located in Stonecrest, we serve patients from 16-80 yrs old with comprehensive mental health and wellness services.',
     mapUrl: 'https://maps.google.com/?q=7910+Mall+Ring+Road+Suite+200+Stonecrest+GA+30038',
     stateLicense: 'Licensed to practice in Georgia'
   },
@@ -38,7 +38,7 @@ const locationData = {
     phone: '470-481-2034',
     fax: '470-481-2577',
     email: 'info@wellcresttherapy.com',
-    services: ['Psychiatric Evaluations', 'Medication Management', 'Cognitive Behavioral Therapy', 'Anxiety & Depression Treatment', 'Stress Management', 'Follow-up Visits', 'Telehealth'],
+    services: ['Psychiatric Evaluations', 'Holistic Therapy Support', 'Cognitive Behavioral Therapy', 'Anxiety & Depression Treatment', 'Stress Management', 'Follow-up Visits', 'Telehealth'],
     hours: {
       monday: '8:00 AM - 5:00 PM',
       tuesday: '8:00 AM - 5:00 PM',
@@ -48,7 +48,7 @@ const locationData = {
       saturday: 'By Appointment Only',
       sunday: 'Closed'
     },
-    features: ['Secure Video Visits', 'HIPAA Compliant Platform', 'Flexible Scheduling', 'No Travel Required', 'Digital Intake Forms', 'Prescription Refills Available'],
+    features: ['Secure Video Visits', 'HIPAA Compliant Platform', 'Flexible Scheduling', 'No Travel Required', 'Digital Intake Forms', 'Wellness Support Available'],
     description: 'Our Arizona services are delivered exclusively through telehealth, providing convenient access to quality mental health care from anywhere in the state. Meet with our providers from the comfort of your home.',
     mapUrl: null,
     stateLicense: 'Licensed to practice in Arizona'
@@ -61,7 +61,7 @@ const locationData = {
     phone: '470-481-2034',
     fax: '470-481-2577',
     email: 'info@wellcresttherapy.com',
-    services: ['Psychiatric Evaluations', 'Medication Management', 'ADHD Assessment & Treatment', 'Mood Disorder Management', 'Follow-up Visits', 'Telehealth'],
+    services: ['Psychiatric Evaluations', 'Holistic Therapy Support', 'ADHD Assessment & Treatment', 'Mood Disorder Management', 'Follow-up Visits', 'Telehealth'],
     hours: {
       monday: '8:00 AM - 5:00 PM',
       tuesday: '8:00 AM - 5:00 PM',
@@ -71,7 +71,7 @@ const locationData = {
       saturday: 'By Appointment Only',
       sunday: 'Closed'
     },
-    features: ['Secure Video Visits', 'HIPAA Compliant Platform', 'Flexible Scheduling', 'No Travel Required', 'Digital Intake Forms', 'Prescription Refills Available'],
+    features: ['Secure Video Visits', 'HIPAA Compliant Platform', 'Flexible Scheduling', 'No Travel Required', 'Digital Intake Forms', 'Wellness Support Available'],
     description: 'Our Maryland services are delivered exclusively through telehealth, providing convenient access to quality mental health care from anywhere in the state. Meet with our providers from the comfort of your home.',
     mapUrl: null,
     stateLicense: 'Licensed to practice in Maryland'

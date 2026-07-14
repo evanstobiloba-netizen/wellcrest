@@ -15,7 +15,7 @@ export default function LocationsPage(){
       name: 'Georgia',
       tagline: 'In-Person & Telehealth',
       badge: 'Main Office',
-      services: ['In-Person Visits', 'Telehealth', 'Psychiatric Care', 'Primary Care', 'Medication Management', 'Lab Work'],
+      services: ['In-Person Visits', 'Telehealth', 'Psychiatric Care', 'Comprehensive Mental Wellness', 'Holistic Therapy Support', 'Lab Work'],
       description: 'Our Georgia location offers both in-person and telehealth services in the Atlanta metro area.',
       href: '/locations/georgia'
     },
@@ -24,7 +24,7 @@ export default function LocationsPage(){
       name: 'Arizona',
       tagline: 'Telehealth Only',
       badge: 'Telehealth',
-      services: ['Telehealth', 'Psychiatric Care', 'Medication Management', 'Therapy'],
+      services: ['Telehealth', 'Psychiatric Care', 'Holistic Therapy Support', 'Therapy'],
       description: 'Access quality mental health care from anywhere in Arizona through our secure telehealth platform.',
       href: '/locations/arizona'
     },
@@ -33,7 +33,7 @@ export default function LocationsPage(){
       name: 'Maryland',
       tagline: 'Telehealth Only',
       badge: 'Telehealth',
-      services: ['Telehealth', 'Psychiatric Care', 'Medication Management', 'Therapy'],
+      services: ['Telehealth', 'Psychiatric Care', 'Holistic Therapy Support', 'Therapy'],
       description: 'Access quality mental health care from anywhere in Maryland through our secure telehealth platform.',
       href: '/locations/maryland'
     }

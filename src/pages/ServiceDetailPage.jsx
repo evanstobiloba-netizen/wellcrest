@@ -13,7 +13,7 @@ const allServices = {
     description: 'Depression is a common but serious mood disorder. It causes severe symptoms that affect how a person feels, thinks, and handles daily activities, such as sleeping, eating, or working. The symptoms must be present for at least 2 weeks to be diagnosed with depression. At WellCrest Health, we provide comprehensive care for patients struggling with depression.',
     icon: Brain,
     features: [
-      { icon: Activity, title: 'Medication Management', desc: 'Expert prescribing and monitoring of antidepressants' },
+      { icon: Activity, title: 'Holistic Therapy Support', desc: 'Therapeutic support and monitoring tailored to your needs' },
       { icon: Brain, title: 'Psychotherapy', desc: 'Cognitive Behavioral Therapy (CBT) and other evidence-based approaches' },
       { icon: Shield, title: 'Personalized Plans', desc: 'Treatment tailored to your specific needs' }
     ],
@@ -27,7 +27,7 @@ const allServices = {
     features: [
       { icon: Activity, title: 'CBT Therapy', desc: 'Cognitive-behavioral therapy techniques' },
       { icon: Brain, title: 'Mindfulness', desc: 'Mindfulness-based stress reduction' },
-      { icon: Calendar, title: 'Medication', desc: 'Anti-anxiety medications when appropriate' },
+      { icon: Calendar, title: 'Wellness Support', desc: 'Clinical wellness support when appropriate' },
       { icon: Shield, title: 'Coping Strategies', desc: 'Tools to manage panic and worry' }
     ],
     conditions: ['Generalized Anxiety Disorder', 'Panic Disorder', 'Social Anxiety', 'Specific Phobias', 'Agoraphobia']
@@ -38,7 +38,7 @@ const allServices = {
     description: 'Bipolar disorder is a mental illness that causes remarkable shifts in a person\'s mood, energy, activity levels, and concentration. These shifts can make it difficult to carry out day-to-day tasks.',
     icon: Zap,
     features: [
-      { icon: Activity, title: 'Mood Stabilizers', desc: 'Medication to balance mood swings' },
+      { icon: Activity, title: 'Mood Stabilizing Strategies', desc: 'Clinical strategies to help balance mood swings' },
       { icon: Brain, title: 'Psychoeducation', desc: 'Understanding your triggers and patterns' },
       { icon: Calendar, title: 'Therapy', desc: 'Interpersonal and social rhythm therapy' },
       { icon: Shield, title: 'Crisis Planning', desc: 'Safety plans for episodes' }
@@ -52,7 +52,7 @@ const allServices = {
     icon: Calendar,
     features: [
       { icon: Activity, title: 'Assessment', desc: 'Comprehensive ADHD evaluation' },
-      { icon: Brain, title: 'Medication', desc: 'Stimulant and non-stimulant options' },
+      { icon: Brain, title: 'Clinical Support', desc: 'Evidence-based clinical options to support focus and attention' },
       { icon: Calendar, title: 'Behavioral Therapy', desc: 'Strategies for focus and organization' },
       { icon: Shield, title: 'Coaching', desc: 'ADHD-specific coaching support' }
     ],
@@ -64,7 +64,7 @@ const allServices = {
     description: 'Post-traumatic stress disorder (PTSD) can have a great impact on every aspect of a person\'s life. At WellCrest Health, we offer compassionate and effective care for patients dealing with PTSD.',
     icon: Shield,
     features: [
-      { icon: Activity, title: 'Medication Management', desc: 'Medication to help manage PTSD symptoms' }
+      { icon: Activity, title: 'Holistic Therapy Support', desc: 'Therapeutic strategies to help manage PTSD symptoms' }
     ],
     conditions: ['PTSD from Trauma', 'Complex PTSD', 'Developmental Trauma', 'Acute Stress Disorder']
   },
@@ -77,7 +77,7 @@ const allServices = {
       { icon: Activity, title: 'Sleep Hygiene', desc: 'Healthy sleep habits education' },
       { icon: Brain, title: 'CBT-I', desc: 'Cognitive Behavioral Therapy for Insomnia' },
       { icon: Calendar, title: 'Routine', desc: 'Personalized sleep schedule' },
-      { icon: Shield, title: 'Medication', desc: 'Sleep aids when appropriate' }
+      { icon: Shield, title: 'Clinical Sleep Support', desc: 'Clinical sleep supports when appropriate' }
     ],
     conditions: ['Chronic Insomnia', 'Acute Insomnia', 'Sleep Onset Disorder', 'Sleep Maintenance Disorder']
   },
@@ -95,9 +95,9 @@ const allServices = {
     conditions: ['Chronic Stress', 'Occupational Burnout', 'Caregiver Stress', 'Life Transitions']
   },
   'primary-care': {
-    title: 'Primary Care',
-    shortDesc: 'Comprehensive primary healthcare services',
-    description: 'Our primary care services focus on preventive health, chronic disease management, and overall wellness. We provide comprehensive healthcare for patients of all ages.',
+    title: 'Comprehensive Mental Wellness',
+    shortDesc: 'Comprehensive wellness services',
+    description: 'Our wellness services focus on prevention, chronic condition support, and overall mental well-being. We provide comprehensive care for patients of all ages.',
     icon: Stethoscope,
     features: [
       { icon: Activity, title: 'Chronic Disease', desc: 'Management of diabetes, hypertension, and other conditions' },
@@ -107,23 +107,23 @@ const allServices = {
     ],
     conditions: ['Hypertension', 'Diabetes', 'UTI', 'Blood Pressure']
   },
-  'medication': {
-    title: 'Medication Management',
-    shortDesc: 'Expert prescription and monitoring',
-    description: 'Our medication management services ensure safe and effective use of medications for mental health and primary care conditions.',
+  'holistic-support': {
+    title: 'Holistic Therapy Support',
+    shortDesc: 'Therapeutic support and monitoring',
+    description: 'Our holistic therapy support services focus on safe, evidence-based therapeutic plans and monitoring to support recovery and wellness.',
     icon: Activity,
     features: [
-      { icon: Activity, title: 'Prescribing', desc: 'Expert medication prescribing' },
+      { icon: Activity, title: 'Therapeutic Planning', desc: 'Individualized therapeutic planning and guidance' },
       { icon: Shield, title: 'Monitoring', desc: 'Regular monitoring and adjustments' },
       { icon: Calendar, title: 'Follow-ups', desc: 'Ongoing follow-up care' },
-      { icon: Heart, title: 'Support', desc: 'Pharmacy support and questions' }
+      { icon: Heart, title: 'Support', desc: 'Care team support and coordination' }
     ],
-    conditions: ['Medication Reviews', 'Refill Management', 'Drug Interactions', 'Adherence Support']
+    conditions: ['Care Reviews', 'Refill Coordination', 'Interaction Checks', 'Adherence Support']
   },
   'telehealth': {
     title: 'Telehealth Services',
-    shortDesc: 'Virtual healthcare from anywhere',
-    description: 'Access quality healthcare from the comfort of your home. Our telehealth services make it easy to get the care you need, wherever you are.',
+    shortDesc: 'Virtual wellness from anywhere',
+    description: 'Access quality wellness support from the comfort of your home. Our telehealth services make it easy to get the care you need, wherever you are.',
     icon: Video,
     features: [
       { icon: Video, title: 'Video Visits', desc: 'Secure video consultations' },
@@ -131,7 +131,7 @@ const allServices = {
       { icon: Calendar, title: 'Flexible Scheduling', desc: 'Appointments that fit your schedule' },
       { icon: Shield, title: 'HIPAA Secure', desc: 'Private and secure platform' }
     ],
-    conditions: ['Virtual Visits', 'Remote Monitoring', 'Online Prescriptions', 'Tele-therapy']
+    conditions: ['Virtual Visits', 'Remote Monitoring', 'Online Care', 'Tele-therapy']
   }
 }
 
@@ -143,7 +143,7 @@ export default function ServiceDetailPage() {
   // Determine which category this service belongs to
   const mentalServices = ['depression', 'anxiety', 'bipolar', 'adhd', 'ptsd', 'insomnia', 'stress']
   const category = mentalServices.includes(serviceId) ? 'mental-health' : 'primary-health'
-  const categoryTitle = mentalServices.includes(serviceId) ? 'Mental Health Services' : 'Primary Health Services'
+  const categoryTitle = mentalServices.includes(serviceId) ? 'Mental Health Services' : 'Comprehensive Wellness Services'
 
   if (!service) {
     return (
