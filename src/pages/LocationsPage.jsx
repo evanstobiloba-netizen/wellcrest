@@ -44,7 +44,7 @@ export default function LocationsPage(){
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-brand/5 via-white to-brand-teal/5 pt-28 pb-16">
+      <section className="relative bg-gradient-to-br from-brand/5 via-white to-brand-teal/5 page-section">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10 relative">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12">
             <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">Our Locations</h1>

@@ -14,7 +14,7 @@ export default function ServicePreventiveCare() {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-brand/5 via-white to-brand-teal/5 pt-28 pb-16">
+      <section className="relative bg-gradient-to-br from-brand/5 via-white to-brand-teal/5 page-section">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10 relative">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
             <Link to="/services" className="inline-flex items-center gap-2 text-brand hover:gap-3 transition-all mb-6">

@@ -93,45 +93,6 @@ const allServices = {
       { icon: Shield, title: 'Resilience Building', desc: 'Strengthen your coping abilities' }
     ],
     conditions: ['Chronic Stress', 'Occupational Burnout', 'Caregiver Stress', 'Life Transitions']
-  },
-  'primary-care': {
-    title: 'Comprehensive Mental Wellness',
-    shortDesc: 'Comprehensive wellness services',
-    description: 'Our wellness services focus on prevention, chronic condition support, and overall mental well-being. We provide comprehensive care for patients of all ages.',
-    icon: Stethoscope,
-    features: [
-      { icon: Activity, title: 'Chronic Disease', desc: 'Management of diabetes, hypertension, and other conditions' },
-      { icon: Shield, title: 'Preventive Care', desc: 'Annual checkups and screenings' },
-      { icon: Video, title: 'Care Coordination', desc: 'Coordination with specialists' },
-      { icon: Calendar, title: 'Health Screenings', desc: 'Routine screenings for early detection' }
-    ],
-    conditions: ['Hypertension', 'Diabetes', 'UTI', 'Blood Pressure']
-  },
-  'holistic-support': {
-    title: 'Holistic Therapy Support',
-    shortDesc: 'Therapeutic support and monitoring',
-    description: 'Our holistic therapy support services focus on safe, evidence-based therapeutic plans and monitoring to support recovery and wellness.',
-    icon: Activity,
-    features: [
-      { icon: Activity, title: 'Therapeutic Planning', desc: 'Individualized therapeutic planning and guidance' },
-      { icon: Shield, title: 'Monitoring', desc: 'Regular monitoring and adjustments' },
-      { icon: Calendar, title: 'Follow-ups', desc: 'Ongoing follow-up care' },
-      { icon: Heart, title: 'Support', desc: 'Care team support and coordination' }
-    ],
-    conditions: ['Care Reviews', 'Refill Coordination', 'Interaction Checks', 'Adherence Support']
-  },
-  'telehealth': {
-    title: 'Telehealth Services',
-    shortDesc: 'Virtual wellness from anywhere',
-    description: 'Access quality wellness support from the comfort of your home. Our telehealth services make it easy to get the care you need, wherever you are.',
-    icon: Video,
-    features: [
-      { icon: Video, title: 'Video Visits', desc: 'Secure video consultations' },
-      { icon: Activity, title: 'Online Portal', desc: 'Easy access to records' },
-      { icon: Calendar, title: 'Flexible Scheduling', desc: 'Appointments that fit your schedule' },
-      { icon: Shield, title: 'HIPAA Secure', desc: 'Private and secure platform' }
-    ],
-    conditions: ['Virtual Visits', 'Remote Monitoring', 'Online Care', 'Tele-therapy']
   }
 }
 
@@ -140,16 +101,14 @@ export default function ServiceDetailPage() {
   const calendly = useCalendly()
   const service = allServices[serviceId]
 
-  // Determine which category this service belongs to
-  const mentalServices = ['depression', 'anxiety', 'bipolar', 'adhd', 'ptsd', 'insomnia', 'stress']
-  const category = mentalServices.includes(serviceId) ? 'mental-health' : 'primary-health'
-  const categoryTitle = mentalServices.includes(serviceId) ? 'Mental Health Services' : 'Comprehensive Wellness Services'
+  const category = 'mental-health'
+  const categoryTitle = 'Mental Health Services'
 
   if (!service) {
     return (
       <div className="min-h-screen bg-white">
         <Navbar />
-        <div className="pt-32 pb-20 text-center">
+        <div className="pt-40 pb-20 text-center">
           <p className="text-slate-500">Service not found</p>
           <Link to="/services" className="text-brand mt-4 inline-block">Back to Services</Link>
         </div>
@@ -165,7 +124,7 @@ export default function ServiceDetailPage() {
       <Navbar />
       
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-brand/5 via-white to-brand-teal/5 pt-28 pb-16">
+      <section className="relative bg-gradient-to-br from-brand/5 via-white to-brand-teal/5 page-section">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10 relative">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <Link to={`/services/${category}`} className="inline-flex items-center gap-2 text-brand hover:gap-3 transition-all mb-6">

@@ -28,7 +28,7 @@ export default function Contact(){
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative pt-28 pb-20 lg:pt-32 lg:pb-24 overflow-hidden">
+      <section className="relative page-section-lg overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" aria-hidden>
           <div className="absolute top-20 -left-40 w-96 h-96 bg-[brand-navy]/5 rounded-full blur-3xl" />
           <div className="absolute bottom-20 -right-40 w-80 h-80 bg-[#00C2FF]/5 rounded-full blur-3xl" />

@@ -30,7 +30,7 @@ export default function BlogDetail() {
     return (
       <div className="min-h-screen bg-white">
         <Navbar />
-        <div className="pt-32 pb-20 text-center">
+        <div className="pt-40 pb-20 text-center">
           <p className="text-slate-500">Post not found</p>
           <Link to="/articles" className="text-brand mt-4 inline-block">Back to Articles</Link>
         </div>
@@ -43,7 +43,7 @@ export default function BlogDetail() {
     <div className="min-h-screen bg-white">
       <Navbar />
       
-      <section className="pt-28 pb-16">
+      <section className="page-section">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10">
           <Link to="/articles" className="inline-flex items-center gap-2 text-brand hover:gap-3 transition-all mb-6">
             <ArrowLeft className="w-4 h-4" />

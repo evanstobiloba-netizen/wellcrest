@@ -9,9 +9,6 @@ import About from './pages/About'
 import ServicesPage from './pages/ServicesPage'
 import ServiceDetail from './pages/ServiceDetail'
 import ServiceDetailPage from './pages/ServiceDetailPage'
-import ServiceChronicDisease from './pages/ServiceChronicDisease'
-import ServicePreventiveCare from './pages/ServicePreventiveCare'
-import ServiceAcuteCare from './pages/ServiceAcuteCare'
 import LocationsPage from './pages/LocationsPage'
 import LocationDetail from './pages/LocationDetail'
 import Articles from './pages/Articles'
@@ -31,13 +28,8 @@ root.render(
             
             {/* Services */}
             <Route path="/services" element={<ServicesPage />} />
-          <Route path="/services/mental-health" element={<ServiceDetail type="mental" />} />
-          <Route path="/services/mental-health/:serviceId" element={<ServiceDetailPage />} />
-          <Route path="/services/primary-health" element={<ServiceDetail type="primary" />} />
-          <Route path="/services/primary-health/:serviceId" element={<ServiceDetailPage />} />
-            <Route path="/services/chronic-disease" element={<ServiceChronicDisease />} />
-            <Route path="/services/preventive-care" element={<ServicePreventiveCare />} />
-            <Route path="/services/acute-care" element={<ServiceAcuteCare />} />
+            <Route path="/services/mental-health" element={<ServiceDetail type="mental" />} />
+            <Route path="/services/mental-health/:serviceId" element={<ServiceDetailPage />} />
             
             {/* Locations */}
             <Route path="/locations" element={<LocationsPage />} />

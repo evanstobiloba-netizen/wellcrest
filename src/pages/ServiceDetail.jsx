@@ -103,64 +103,17 @@ const mentalHealthServices = [
   }
 ]
 
-const primaryHealthServices = [
-  {
-    id: 'primary-care',
-    title: 'Comprehensive Mental Wellness',
-    shortDesc: 'Comprehensive wellness services',
-    description: 'Our wellness services focus on prevention, chronic condition support, and overall mental well-being. We provide comprehensive care for patients of all ages.',
-    icon: Stethoscope,
-    features: [
-      { icon: Activity, title: 'Chronic Disease', desc: 'Management of diabetes, hypertension, and other conditions' },
-      { icon: Shield, title: 'Preventive Care', desc: 'Annual checkups and screenings' },
-      { icon: Video, title: 'Care Coordination', desc: 'Coordination with specialists' },
-      { icon: Calendar, title: 'Health Screenings', desc: 'Routine screenings for early detection' }
-    ],
-    conditions: ['Hypertension', 'Diabetes', 'UTI', 'Blood Pressure']
-  },
-  {
-    id: 'holistic-support',
-    title: 'Holistic Therapy Support',
-    shortDesc: 'Therapeutic support and monitoring',
-    description: 'Our holistic therapy support services focus on safe, evidence-based therapeutic plans and monitoring to support recovery and wellness.',
-    icon: Activity,
-    features: [
-      { icon: Activity, title: 'Therapeutic Planning', desc: 'Individualized therapeutic planning and guidance' },
-      { icon: Shield, title: 'Monitoring', desc: 'Regular monitoring and adjustments' },
-      { icon: Calendar, title: 'Follow-ups', desc: 'Ongoing follow-up care' },
-      { icon: Heart, title: 'Support', desc: 'Care team support and coordination' }
-    ],
-    conditions: ['Care Reviews', 'Refill Coordination', 'Interaction Checks', 'Adherence Support']
-  },
-  {
-    id: 'telehealth',
-    title: 'Telehealth Services',
-    shortDesc: 'Virtual wellness from anywhere',
-    description: 'Access quality wellness support from the comfort of your home. Our telehealth services make it easy to get the care you need, wherever you are.',
-    icon: Video,
-    features: [
-      { icon: Video, title: 'Video Visits', desc: 'Secure video consultations' },
-      { icon: Activity, title: 'Online Portal', desc: 'Easy access to records' },
-      { icon: Calendar, title: 'Flexible Scheduling', desc: 'Appointments that fit your schedule' },
-      { icon: Shield, title: 'HIPAA Secure', desc: 'Private and secure platform' }
-    ],
-    conditions: ['Virtual Visits', 'Remote Monitoring', 'Online Care', 'Tele-therapy']
-  }
-]
-
 export default function ServiceDetail({ type }) {
-  const services = type === 'mental' ? mentalHealthServices : primaryHealthServices
-  const pageTitle = type === 'mental' ? 'Mental Health Services' : 'Comprehensive Wellness Services'
-  const pageDesc = type === 'mental' 
-    ? 'Comprehensive mental health care services including depression, anxiety, bipolar disorder, PTSD, and more.'
-    : 'Comprehensive wellness services for prevention, chronic condition support, and overall well-being.'
+  const services = mentalHealthServices
+  const pageTitle = 'Mental Health Services'
+  const pageDesc = 'Comprehensive mental health care services including depression, anxiety, bipolar disorder, PTSD, and more.'
 
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative bg-white pt-28 pb-16">
+      <section className="relative bg-white page-section">
         <div className="absolute inset-0 pointer-events-none" aria-hidden>
           <div className="absolute top-20 -left-40 w-96 h-96 bg-blue-50 rounded-full blur-3xl" />
           <div className="absolute bottom-20 -right-40 w-80 h-80 bg-violet-50 rounded-full blur-3xl" />
@@ -215,7 +168,7 @@ export default function ServiceDetail({ type }) {
                 </div>
                 
                 <Link 
-                  to={`/services/${type === 'mental' ? 'mental-health' : 'primary-health'}/${service.id}`}
+                  to={`/services/mental-health/${service.id}`}
                   className="inline-flex items-center gap-2 text-brand font-medium text-sm hover:gap-3 transition-all"
                 >
                   Learn More <ArrowRight className="w-4 h-4" />

@@ -15,7 +15,7 @@ const locationData = {
     phone: '470-481-2034',
     fax: '470-481-2577',
     email: 'info@wellcresttherapy.com',
-    services: ['Psychiatric Evaluations', 'Holistic Therapy Support', 'Comprehensive Mental Wellness', 'Chronic Disease Management', 'Preventive Screenings', 'Lab Work, Testing & Treatment', 'ADHD', 'Depression', 'Bipolar Disorder', 'Anxiety', 'Telehealth'],
+    services: ['Psychiatric Evaluations', 'Holistic Therapy Support', 'Chronic Disease Management', 'Preventive Screenings', 'Lab Work, Testing & Treatment', 'ADHD', 'Depression', 'Bipolar Disorder', 'Anxiety', 'Telehealth'],
     hours: {
       monday: '8:00 AM - 5:00 PM',
       tuesday: '8:00 AM - 5:00 PM',
@@ -88,7 +88,7 @@ export default function LocationDetail() {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-brand/5 via-white to-brand-teal/5 pt-28 pb-16">
+      <section className="relative bg-gradient-to-br from-brand/5 via-white to-brand-teal/5 page-section">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10 relative">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
             <Link to="/locations" className="inline-flex items-center gap-2 text-brand hover:gap-3 transition-all mb-6">

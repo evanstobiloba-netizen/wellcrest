@@ -3,35 +3,14 @@ import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../sections/Footer'
 import BookAppointmentButton from '../components/BookAppointmentButton'
-import { Brain, Stethoscope, Activity, Heart, Thermometer, ArrowRight, MapPin, Phone, Video } from 'lucide-react'
+import { Brain, ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 export default function ServicesPage(){
   const serviceCategories = [
     {
-      title: 'Chronic Disease Management',
-      description: 'Comprehensive care for hypertension, diabetes, and other chronic conditions with personalized treatment plans.',
-      icon: Activity,
-      href: '/services/chronic-disease',
-      servicesCount: 10
-    },
-    {
-      title: 'Preventive Care',
-      description: 'Annual physicals, immunizations, screenings, and wellness visits to keep you healthy.',
-      icon: Heart,
-      href: '/services/preventive-care',
-      servicesCount: 11
-    },
-    {
-      title: 'Acute Care',
-      description: 'Same-day treatment for colds, STIs, UTIs, respiratory infections, and other immediate health concerns.',
-      icon: Thermometer,
-      href: '/services/acute-care',
-      servicesCount: 10
-    },
-    {
       title: 'Mental Health Services',
-      description: 'Comprehensive mental health care including depression, anxiety, PTSD, therapy, and holistic therapy support.',
+      description: 'Comprehensive mental health care including depression, anxiety, bipolar disorder, PTSD, ADHD, insomnia, and stress management.',
       icon: Brain,
       href: '/services/mental-health',
       servicesCount: 7
@@ -43,7 +22,7 @@ export default function ServicesPage(){
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative bg-white pt-28 pb-16">
+      <section className="relative bg-white page-section">
         <div className="absolute inset-0 pointer-events-none" aria-hidden>
           <div className="absolute top-20 -left-40 w-96 h-96 bg-blue-50 rounded-full blur-3xl" />
           <div className="absolute bottom-20 -right-40 w-80 h-80 bg-violet-50 rounded-full blur-3xl" />

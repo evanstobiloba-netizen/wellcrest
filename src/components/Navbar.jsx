@@ -26,11 +26,6 @@ export default function Navbar(){
     { 
       label: 'Services',
       href: '/services',
-      hasDropdown: true,
-      dropdown: [
-        { label: 'Mental Health', href: '/services/mental-health' },
-        { label: 'Wellness', href: '/services/primary-health' },
-      ]
     },
     { 
       label: 'Locations', 

@@ -16,7 +16,7 @@ export default function Hero(){
       </div>
       
       {/* Content */}
-      <div className="relative z-10 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10 py-20 lg:py-0">
+      <div className="relative z-10 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10 pt-24 pb-16 lg:pt-32 lg:pb-0">
         <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center min-h-[80vh] lg:h-[88vh]">
           {/* Left Content */}
           <div className="col-span-12 lg:col-span-7 order-2 lg:order-1 pt-12 lg:pt-0">
@@ -42,11 +42,7 @@ export default function Hero(){
                 Mental Health
               </span>
               <span className="text-slate-900">
-                & Comprehensive Mental Wellness.
-              </span>
-              <br />
-              <span className="text-transparent bg-clip-text from-brand-navy">
-                Comprehensive Mental Wellness.
+                & Wellness.
               </span>
             </motion.h1>
             

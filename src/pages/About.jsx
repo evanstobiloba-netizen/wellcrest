@@ -11,7 +11,7 @@ export default function About(){
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative pt-28 pb-20 lg:pt-32 lg:pb-24 overflow-hidden">
+      <section className="relative page-section-lg overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" aria-hidden>
           <div className="absolute top-20 -left-40 w-96 h-96 bg-[brand-navy]/5 rounded-full blur-3xl" />
           <div className="absolute bottom-20 -right-40 w-80 h-80 bg-[brand-navy]/5 rounded-full blur-3xl" />
@@ -50,7 +50,7 @@ export default function About(){
                 Our Mission
               </h2>
               <p className="text-[#5A6A7A] leading-relaxed">
-                WellCrest Health is committed to helping individuals achieve optimal health and well-being through compassionate, patient-centered care that integrates both mental health and wellness services. We provide evidence-based approaches across the lifespan, recognizing the connection between physical and emotional health. We believe everyone deserves access to high-quality, comprehensive care in a supportive, respectful, and understanding environment.
+                WellCrest Health is committed to helping individuals achieve optimal health and well-being through compassionate, patient-centered care that integrates mental health and wellness services. We provide evidence-based approaches across the lifespan, recognizing the connection between physical and emotional health. We believe everyone deserves access to high-quality, comprehensive care in a supportive, respectful, and understanding environment.
               </p>
             </motion.div>
             <motion.div 

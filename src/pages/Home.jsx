@@ -22,7 +22,6 @@ const heroStats = [
 
 const heroFeatures = [
   { icon: HeartPulse, title: 'Mental Health', desc: 'Personalized therapy & psychiatric care' },
-  { icon: Stethoscope, title: 'Comprehensive Mental Wellness', desc: 'Supportive wellness services' },
   { icon: Mic, title: 'Telehealth', desc: 'Virtual visits in GA, AZ, MD' },
 ]
 
@@ -56,7 +55,7 @@ function Hero({ hero }){
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] rounded-full bg-brand/[0.02] blur-[150px]" />
       </div>
       
-      <div className="relative z-10 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10 py-16 lg:py-0">
+      <div className="relative z-10 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10 pt-24 pb-16 lg:pt-32 lg:pb-0">
         <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center min-h-[80vh] lg:h-[88vh]">
           {/* Left Content */}
           <div className="col-span-12 lg:col-span-6 order-2 lg:order-1 pt-8 lg:pt-0">
@@ -77,7 +76,7 @@ function Hero({ hero }){
               className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-5"
             >
               <span className="text-brand">
-                {hero.title || 'Mental Health & Comprehensive Mental Wellness.'}
+                {hero.title || 'Mental Health & Wellness.'}
               </span>
             </motion.h1>
             
