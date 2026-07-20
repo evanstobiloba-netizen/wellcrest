@@ -47,7 +47,7 @@ export default function Home(){
 
 function Hero({ hero }){
   return (
-    <header className="relative w-full min-h-[92vh] lg:min-h-[88vh] overflow-hidden bg-white text-slate-900" id="home">
+    <header className="relative w-full min-h-screen lg:min-h-[92vh] overflow-hidden bg-white text-slate-900" id="home">
       {/* Animated background */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
         <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full bg-brand/5 blur-[120px]" />
@@ -55,10 +55,10 @@ function Hero({ hero }){
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] rounded-full bg-brand/[0.02] blur-[150px]" />
       </div>
       
-      <div className="relative z-10 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10 pt-32 pb-16 lg:pt-32 lg:pb-0">
-        <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center min-h-[80vh] lg:h-[88vh]">
+      <div className="relative z-10 max-w-screen-xl mx-auto px-5 sm:px-8 md:px-10 lg:px-10 pt-28 sm:pt-32 pb-12 lg:pt-32 lg:pb-6">
+        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-10 lg:gap-12 items-center min-h-[80vh] lg:h-[88vh]">
           {/* Left Content */}
-          <div className="col-span-12 lg:col-span-6 order-2 lg:order-1 pt-8 lg:pt-0">
+          <div className="w-full lg:col-span-6 lg:order-1 pt-2 lg:pt-0">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -84,7 +84,7 @@ function Hero({ hero }){
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.15 }}
-              className="text-base sm:text-lg text-slate-500 max-w-lg mb-8 leading-relaxed"
+              className="text-sm sm:text-base md:text-lg text-slate-500 max-w-lg mb-6 sm:mb-8 leading-relaxed"
             >
               {hero.subtitle || 'Compassionate, evidence-based care delivered with convenience and affordability.'}
             </motion.p>
@@ -106,12 +106,12 @@ function Hero({ hero }){
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.25 }}
-              className="flex flex-wrap items-center gap-6"
+              className="flex flex-wrap items-center gap-4 sm:gap-6"
             >
               {heroStats.map((stat, idx) => (
-                <div key={idx} className="flex items-center gap-2.5">
-                  <div className="w-10 h-10 rounded-lg bg-slate-50 flex items-center justify-center">
-                    <stat.icon className="w-5 h-5 text-brand" />
+                <div key={idx} className="flex items-center gap-2 sm:gap-2.5">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-slate-50 flex items-center justify-center">
+                    <stat.icon className="w-4 h-4 sm:w-5 sm:h-5 text-brand" />
                   </div>
                   <div>
                     <div className="text-base font-bold text-slate-900">{stat.value}</div>
@@ -127,45 +127,30 @@ function Hero({ hero }){
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="col-span-12 lg:col-span-6 order-1 lg:order-2"
+            className="w-full lg:col-span-6 lg:order-2"
           >
             <div className="relative">
-              <div className="grid grid-cols-1 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 {heroFeatures.map((feature, idx) => (
                   <motion.div
                     key={idx}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 + idx * 0.1 }}
-                    className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:shadow-xl hover:border-brand/20 transition-all duration-300"
+                    className="bg-white rounded-2xl p-5 sm:p-6 shadow-lg border border-slate-100 hover:shadow-xl hover:border-brand/20 transition-all duration-300"
                   >
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-brand/10 flex items-center justify-center flex-shrink-0">
-                        <feature.icon className="w-6 h-6 text-brand" />
+                    <div className="flex items-start gap-3 sm:gap-4">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand/10 flex items-center justify-center flex-shrink-0">
+                        <feature.icon className="w-5 h-5 sm:w-6 sm:h-6 text-brand" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-bold text-slate-900 mb-1">{feature.title}</h3>
-                        <p className="text-sm text-slate-500">{feature.desc}</p>
+                        <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-1">{feature.title}</h3>
+                        <p className="text-xs sm:text-sm text-slate-500">{feature.desc}</p>
                       </div>
                     </div>
                   </motion.div>
                 ))}
               </div>
-              
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.8 }}
-                className="absolute -bottom-6 -right-2 bg-white rounded-xl shadow-lg border border-slate-100 p-4"
-              >
-                <div className="flex items-center gap-3">
-                  <Activity className="w-5 h-5 text-brand" />
-                  <div>
-                    <div className="text-sm font-semibold text-slate-900">Evidence-Based</div>
-                    <div className="text-xs text-slate-500">Modern treatments</div>
-                  </div>
-                </div>
-              </motion.div>
             </div>
           </motion.div>
         </div>
