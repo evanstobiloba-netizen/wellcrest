@@ -55,7 +55,7 @@ function Hero({ hero }){
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] rounded-full bg-brand/[0.02] blur-[150px]" />
       </div>
       
-      <div className="relative z-10 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10 pt-24 pb-16 lg:pt-32 lg:pb-0">
+      <div className="relative z-10 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10 pt-32 pb-16 lg:pt-32 lg:pb-0">
         <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center min-h-[80vh] lg:h-[88vh]">
           {/* Left Content */}
           <div className="col-span-12 lg:col-span-6 order-2 lg:order-1 pt-8 lg:pt-0">
