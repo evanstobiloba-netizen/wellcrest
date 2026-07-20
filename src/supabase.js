@@ -7,7 +7,7 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 export const supabase = createClient(supabaseUrl, supabaseKey)
 
 export const defaultContent = {
-  _version: 4,
+  _version: 6,
   hero: {
     badge: 'YOUR HEALTH, OUR PRIORITY',
     title: 'Mental Health & Wellness.',
@@ -37,9 +37,18 @@ export const defaultContent = {
   ],
 }
 
+export const CURRENT_VERSION = 6
+
 export async function fetchContent() {
   const cached = localStorage.getItem('wellcrest-content')
-  const cachedData = cached ? JSON.parse(cached) : null
+  const cachedVersion = localStorage.getItem('wellcrest-content-version')
+  const cachedData = cached && cachedVersion ? JSON.parse(cached) : null
+  
+  // Bump cache if version changed
+  if (cachedData && Number(cachedVersion) !== CURRENT_VERSION) {
+    localStorage.removeItem('wellcrest-content')
+    localStorage.removeItem('wellcrest-content-version')
+  }
   
   try {
     const { data, error } = await supabase
@@ -55,6 +64,7 @@ export async function fetchContent() {
     
     if (data && data.data) {
       localStorage.setItem('wellcrest-content', JSON.stringify(data.data))
+      localStorage.setItem('wellcrest-content-version', String(CURRENT_VERSION))
       return data.data
     }
     
@@ -66,9 +76,10 @@ export async function fetchContent() {
 }
 
 export async function saveContent(data) {
+  const newData = { ...data, _version: CURRENT_VERSION }
   const { error } = await supabase
     .from('content')
-    .upsert({ id: 'main', data }, { onConflict: 'id' })
+    .upsert({ id: 'main', data: newData }, { onConflict: 'id' })
   
   if (error) {
     console.error('Save error:', error)
