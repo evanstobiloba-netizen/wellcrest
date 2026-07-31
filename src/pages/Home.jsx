@@ -17,12 +17,12 @@ const heroStats = [
   { icon: Star, value: '4.9', label: 'Rating' },
   { icon: Shield, value: 'HIPAA', label: 'Compliant' },
   { icon: Users, value: '10+', label: 'Years Exp' },
-  { icon: Video, value: 'Telehealth', label: 'Available' },
+  { icon: Video, value: 'In-Office', label: '& Telehealth' },
 ]
 
 const heroFeatures = [
   { icon: HeartPulse, title: 'Mental Health', desc: 'Personalized therapy & psychiatric care' },
-  { icon: Mic, title: 'Telehealth', desc: 'Virtual visits in GA, AZ, MD' },
+  { icon: Mic, title: 'In-Office & Telehealth', desc: 'In-person care in Georgia and virtual visits across GA, AZ, MD' },
 ]
 
 export default function Home(){
