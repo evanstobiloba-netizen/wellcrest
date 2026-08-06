@@ -9,7 +9,7 @@ import {
 import { useContent } from '../context/ContentContext'
 import { saveContent } from '../supabase'
 
-const ADMIN_PASSWORD = '[REDACTED]'
+const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD
 
 function HeroEditor({ content, onUpdate }) {
   return (
