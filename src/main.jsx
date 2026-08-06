@@ -15,6 +15,7 @@ import Articles from './pages/Articles'
 import BlogDetail from './pages/BlogDetail'
 import Contact from './pages/Contact'
 import Admin from './pages/Admin'
+import Preceptorship from './pages/Preceptorship'
 
 const root = createRoot(document.getElementById('root'))
 root.render(
@@ -38,6 +39,9 @@ root.render(
             <Route path="/articles" element={<Articles />} />
             <Route path="/articles/detail" element={<BlogDetail />} />
             <Route path="/contact" element={<Contact />} />
+            
+            {/* Preceptorship */}
+            <Route path="/preceptorship" element={<Preceptorship />} />
             
             {/* Admin */}
             <Route path="/admin" element={<Admin />} />

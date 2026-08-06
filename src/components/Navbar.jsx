@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ChevronDown, Phone, Mail } from 'lucide-react'
+import { Menu, X, ChevronDown, Phone, Mail, GraduationCap } from 'lucide-react'
 import Logo from './Logo'
 import { useCalendly } from './CalendlyModal'
 
@@ -148,6 +148,15 @@ export default function Navbar(){
 
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center gap-3">
+          <Link
+            to="/preceptorship"
+            className={`flex items-center gap-2 border-2 border-brand-teal text-brand-teal px-4 py-2.5 rounded-xl font-semibold transition-colors ${
+              isActive('/preceptorship') ? 'bg-brand-teal/10' : 'hover:bg-brand-teal/10'
+            }`}
+          >
+            <GraduationCap className="w-4 h-4" />
+            Preceptorship
+          </Link>
           <button onClick={calendly.open} className="btn-primary">
             Book Appointment
           </button>
@@ -217,6 +226,14 @@ export default function Navbar(){
                   )}
                 </div>
               ))}
+              <Link
+                to="/preceptorship"
+                className="flex items-center gap-2 px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-xl transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <GraduationCap className="w-5 h-5 text-brand-teal" />
+                Preceptorship
+              </Link>
               <button onClick={() => { calendly.open(); setMobileMenuOpen(false) }} className="block w-full mt-4 btn-primary text-center">
                 Book Appointment
               </button>
