@@ -4,6 +4,7 @@ import Footer from '../sections/Footer'
 import BookAppointmentButton from '../components/BookAppointmentButton'
 import Newsletter from '../components/Newsletter'
 import Services from '../sections/Services'
+import Insurance from '../sections/Insurance'
 import Locations from '../sections/Locations'
 import Why from '../sections/Why'
 import Genesight from '../sections/Genesight'
@@ -34,6 +35,7 @@ export default function Home(){
     <div className="min-h-screen bg-white text-slate-900">
       <Navbar />
       <Hero hero={hero} />
+      <Insurance />
       <DoctorBio />
       <Services services={services} />
       <Locations />
