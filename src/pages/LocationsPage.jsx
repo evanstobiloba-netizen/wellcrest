@@ -117,9 +117,9 @@ export default function LocationsPage(){
           </motion.div>
 
           <div className="flex flex-wrap justify-center gap-4">
-            {['Aetna', 'Blue Cross Blue Shield', 'Cigna', 'Humana', 'United Healthcare', 'Medicare', 'Medicaid'].map((insurance, idx) => (
+            {['Cigna', 'Aetna', 'Oscar (Optum)', 'GTEB', 'Humana', 'Medicare', 'Anthem', 'Blue Cross Blue Shield', 'UnitedHealthcare/Optum', 'Carelon Behavioral Health', 'CareFirst BlueCross BlueShield', 'Oxford (Optum)'].map((insurance, idx) => (
               <div key={idx} className="px-4 py-2 bg-white rounded-lg border border-slate-200 text-sm text-slate-600">
-                {insurance}
+                {insurance}{insurance === 'Oxford (Optum)' && <span className="ml-1 text-[10px] font-semibold uppercase tracking-wide text-emerald-600">Coming Soon</span>}
               </div>
             ))}
           </div>

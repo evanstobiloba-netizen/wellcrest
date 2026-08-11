@@ -1,14 +1,18 @@
 import React from 'react'
 
 const insurances = [
-  { name: 'Aetna', src: '/logos/aetna.svg' },
-  { name: 'Blue Cross Blue Shield', src: '/logos/blue-cross-blue-shield.svg' },
   { name: 'Cigna', src: '/logos/cigna.png' },
+  { name: 'Aetna', src: '/logos/aetna.svg' },
+  { name: 'Oscar (Optum)' },
+  { name: 'GTEB' },
   { name: 'Humana', src: '/logos/humana.svg' },
-  { name: 'United Healthcare', src: '/logos/unitedhealthcare.svg' },
   { name: 'Medicare', src: '/logos/medicare.svg' },
-  { name: 'Medicaid' },
-  { name: 'WellCare', src: '/logos/wellcare.png' },
+  { name: 'Anthem' },
+  { name: 'Blue Cross Blue Shield', src: '/logos/blue-cross-blue-shield.svg' },
+  { name: 'UnitedHealthcare/Optum', src: '/logos/unitedhealthcare.svg' },
+  { name: 'Carelon Behavioral Health' },
+  { name: 'CareFirst BlueCross BlueShield' },
+  { name: 'Oxford (Optum)', comingSoon: true },
 ]
 
 export default function Insurance(){
@@ -30,7 +34,10 @@ export default function Insurance(){
               {ins.src ? (
                 <img src={ins.src} alt={ins.name} className="h-5 md:h-6 w-auto object-contain" />
               ) : (
-                <span className="text-sm font-medium text-gray-600">{ins.name}</span>
+                <span className="text-sm font-medium text-gray-600">
+                  {ins.name}
+                  {ins.comingSoon && <span className="ml-1 text-[10px] font-semibold uppercase tracking-wide text-emerald-600">Coming Soon</span>}
+                </span>
               )}
             </div>
           ))}
