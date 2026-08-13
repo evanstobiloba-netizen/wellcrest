@@ -109,17 +109,17 @@ export default function LocationsPage(){
       </section>
 
       {/* Insurance Section */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-20 bg-slate-50">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">Insurance Accepted</h2>
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">Insurance Accepted</h2>
             <p className="text-slate-500">We accept most major insurance plans. Contact us to verify your coverage.</p>
           </motion.div>
 
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-5">
             {['Cigna', 'Aetna', 'Oscar (Optum)', 'GTEB', 'Humana', 'Medicare', 'Anthem', 'Blue Cross Blue Shield', 'UnitedHealthcare/Optum', 'Carelon Behavioral Health', 'CareFirst BlueCross BlueShield', 'Oxford (Optum)'].map((insurance, idx) => (
-              <div key={idx} className="px-4 py-2 bg-white rounded-lg border border-slate-200 text-sm text-slate-600">
-                {insurance}{insurance === 'Oxford (Optum)' && <span className="ml-1 text-[10px] font-semibold uppercase tracking-wide text-emerald-600">Coming Soon</span>}
+              <div key={idx} className="px-6 py-4 bg-white rounded-lg border border-slate-200 text-base text-slate-600">
+                {insurance}{insurance === 'Oxford (Optum)' && <span className="ml-1 text-xs font-semibold uppercase tracking-wide text-emerald-600">Coming Soon</span>}
               </div>
             ))}
           </div>

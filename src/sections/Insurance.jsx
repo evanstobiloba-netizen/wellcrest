@@ -18,25 +18,25 @@ const insurances = [
 export default function Insurance(){
   const items = [...insurances, ...insurances]
   return (
-    <section className="py-10 bg-white border-y border-slate-100 overflow-hidden" aria-label="Insurance Accepted">
+    <section className="py-20 bg-white border-y border-slate-100 overflow-hidden" aria-label="Insurance Accepted">
       <div className="max-w-7xl mx-auto px-6">
-        <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-slate-400 mb-6">
+        <p className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-slate-400 mb-10">
           Insurance Accepted
         </p>
       </div>
       <div className="relative overflow-hidden">
-        <div className="flex items-center gap-10 w-max marquee-track">
+        <div className="flex items-center gap-14 w-max marquee-track">
           {items.map((ins, idx) => (
             <div
               key={idx}
-              className="flex-shrink-0 h-10 px-8 border border-[#E1E8F0] rounded-md flex items-center justify-center bg-white"
+              className="flex-shrink-0 h-16 px-10 border border-[#E1E8F0] rounded-lg flex items-center justify-center bg-white"
             >
               {ins.src ? (
-                <img src={ins.src} alt={ins.name} className="h-5 md:h-6 w-auto object-contain" />
+                <img src={ins.src} alt={ins.name} className="h-8 md:h-10 w-auto object-contain" />
               ) : (
-                <span className="text-sm font-medium text-gray-600">
+                <span className="text-base md:text-lg font-medium text-gray-600">
                   {ins.name}
-                  {ins.comingSoon && <span className="ml-1 text-[10px] font-semibold uppercase tracking-wide text-emerald-600">Coming Soon</span>}
+                  {ins.comingSoon && <span className="ml-1 text-xs font-semibold uppercase tracking-wide text-emerald-600">Coming Soon</span>}
                 </span>
               )}
             </div>
