@@ -6,7 +6,7 @@ export default function DoctorBio() {
   return (
     <section className="py-16 lg:py-24 bg-slate-50">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10">
-        <div className="grid lg:grid-cols-5 gap-10 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}

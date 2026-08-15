@@ -30,20 +30,24 @@ export default function Insurance(){
         </p>
       </div>
       <div className="relative overflow-hidden">
-        <div className="flex items-center gap-14 w-max marquee-track">
-          {items.map((ins, idx) => (
-            <div
-              key={idx}
-              className="flex-shrink-0 h-20 px-10 border border-[#E1E8F0] rounded-lg flex items-center justify-center bg-white"
-            >
-              {ins.src ? (
-                <img src={ins.src} alt={ins.name} className="h-10 md:h-12 w-auto max-w-[190px] object-contain" />
-              ) : (
-                <span className="text-lg md:text-xl font-medium text-gray-600">
-                  {ins.name}
-                  {ins.comingSoon && <span className="ml-1 text-xs font-semibold uppercase tracking-wide text-emerald-600">Coming Soon</span>}
-                </span>
-              )}
+        <div className="flex items-center w-max marquee-track">
+          {[0, 1].map((half) => (
+            <div key={half} className="flex items-center gap-14 pr-14" aria-hidden={half === 1}>
+              {insurances.map((ins, idx) => (
+                <div
+                  key={idx}
+                  className="flex-shrink-0 h-20 px-10 border border-[#E1E8F0] rounded-lg flex items-center justify-center bg-white"
+                >
+                  {ins.src ? (
+                    <img src={ins.src} alt={ins.name} className="h-10 md:h-12 w-auto max-w-[190px] object-contain" />
+                  ) : (
+                    <span className="text-lg md:text-xl font-medium text-gray-600">
+                      {ins.name}
+                      {ins.comingSoon && <span className="ml-1 text-xs font-semibold uppercase tracking-wide text-emerald-600">Coming Soon</span>}
+                    </span>
+                  )}
+                </div>
+              ))}
             </div>
           ))}
         </div>
