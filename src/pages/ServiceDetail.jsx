@@ -113,7 +113,7 @@ export default function ServiceDetail({ type }) {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative bg-white page-section">
+      <section className="relative bg-white page-section overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" aria-hidden>
           <div className="absolute top-20 -left-40 w-96 h-96 bg-blue-50 rounded-full blur-3xl" />
           <div className="absolute bottom-20 -right-40 w-80 h-80 bg-violet-50 rounded-full blur-3xl" />
