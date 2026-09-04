@@ -357,6 +357,17 @@ ul, ol {
 @media (min-width: 1280px) {
   .header-cta { display: flex; }
 }
+.header-cta {
+  gap: 0.625rem;
+}
+.header-cta .btn-preceptorship {
+  padding: 0.5rem 0.875rem;
+  font-size: 0.875rem;
+}
+.header-cta .btn-primary {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
 .btn-preceptorship {
   display: inline-flex;
   align-items: center;

@@ -288,17 +288,17 @@ export default function Navbar(){
         </div>
 
         {/* Desktop CTA */}
-        <div className="hidden xl:flex items-center gap-3">
+        <div className="hidden xl:flex items-center gap-2.5">
           <Link
             to="/preceptorship"
-            className={`flex items-center gap-2 border-2 border-brand-teal text-brand-teal px-4 py-2.5 rounded-xl font-semibold transition-colors ${
+            className={`flex items-center gap-1.5 border-2 border-brand-teal text-brand-teal px-3.5 py-2 rounded-xl font-semibold transition-colors ${
               isActive('/preceptorship') ? 'bg-brand-teal/10' : 'hover:bg-brand-teal/10'
             }`}
           >
             <GraduationCap className="w-4 h-4" />
             Preceptorship
           </Link>
-          <button onClick={calendly.open} className="btn-primary !py-2.5 whitespace-nowrap">
+          <button onClick={calendly.open} className="btn-primary !py-2 !px-4 whitespace-nowrap">
             Book Appointment
           </button>
         </div>
