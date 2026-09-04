@@ -15,7 +15,7 @@ const locationData = {
     phone: '470-481-2034',
     fax: '470-481-2577',
     email: 'info@wellcresttherapy.com',
-    services: ['Psychiatric Evaluations', 'Holistic Therapy Support', 'Chronic Disease Management', 'Preventive Screenings', 'Lab Work, Testing & Treatment', 'ADHD', 'Depression', 'Bipolar Disorder', 'Anxiety', 'Telehealth'],
+    services: ['Psychiatric Evaluations', 'Holistic Therapy Support', 'ADHD', 'Depression', 'Bipolar Disorder', 'Anxiety', 'Telehealth'],
     hours: {
       monday: '8:00 AM - 5:00 PM',
       tuesday: '8:00 AM - 5:00 PM',
@@ -25,7 +25,7 @@ const locationData = {
       saturday: 'By Appointment Only',
       sunday: 'Closed'
     },
-    features: ['Full In-Person Services', 'Telehealth Available', 'Free Parking', 'Wheelchair Accessible', 'Private Waiting Areas', 'On-site Lab Services'],
+    features: ['Full In-Person Services', 'Telehealth Available', 'Free Parking', 'Wheelchair Accessible', 'Private Waiting Areas'],
     description: 'Our Georgia location offers both in-person and telehealth services in the Atlanta metro area. Located in Stonecrest, we serve patients from 16-80 yrs old with comprehensive mental health and wellness services.',
     mapUrl: 'https://maps.google.com/?q=7910+Mall+Ring+Road+Suite+200+Stonecrest+GA+30038',
     stateLicense: 'Licensed to practice in Georgia'
@@ -172,7 +172,8 @@ export default function LocationDetail() {
                 {location.services.map((service, idx) => (
                   <div key={idx} className="flex items-center gap-3 p-4 bg-slate-50 rounded-xl hover:bg-white hover:shadow-sm transition-all">
                     <CheckCircle className="w-5 h-5 text-emerald-500 shrink-0" />
-                    <span className="text-slate-700">{service}</span>
+                    <span className="text-slate-700 flex-1">{service}</span>
+                    <span className="text-[10px] font-semibold uppercase tracking-wide text-brand bg-brand/10 rounded-full px-2 py-0.5">{location.name}</span>
                   </div>
                 ))}
               </div>

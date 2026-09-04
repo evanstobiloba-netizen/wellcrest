@@ -15,7 +15,7 @@ export default function LocationsPage(){
       name: 'Georgia',
       tagline: 'In-Person & Telehealth',
       badge: 'Main Office',
-      services: ['In-Person Visits', 'Telehealth', 'Psychiatric Care', 'Comprehensive Mental Wellness', 'Holistic Therapy Support', 'Lab Work'],
+      services: ['In-Person Visits', 'Telehealth', 'Psychiatric Care', 'Comprehensive Mental Wellness', 'Holistic Therapy Support'],
       description: 'Our Georgia location offers both in-person and telehealth services in the Atlanta metro area.',
       href: '/locations/georgia'
     },
@@ -91,7 +91,8 @@ export default function LocationsPage(){
                       ) : (
                         <CheckCircle className="w-3.5 h-3.5 text-emerald-500" />
                       )}
-                      {service}
+                      <span className="flex-1">{service}</span>
+                      <span className="text-[9px] font-semibold uppercase tracking-wide text-brand bg-brand/10 rounded-full px-1.5 py-0.5">{location.name}</span>
                     </div>
                   ))}
                 </div>
@@ -117,9 +118,9 @@ export default function LocationsPage(){
           </motion.div>
 
           <div className="flex flex-wrap justify-center gap-5">
-            {['Aetna', 'Blue Cross Blue Shield of Georgia', 'Blue Cross Blue Shield of North Carolina', 'Cigna Healthcare', 'Tricare', 'Ambetter', 'Oscar', 'U.S. Department of Veterans Affairs', 'UnitedHealthcare', 'UnitedHealthcare Oxford', 'Humana', 'Medicare', 'Anthem', 'Blue Cross Blue Shield', 'Carelon Behavioral Health', 'CareFirst BlueCross BlueShield', 'Oxford (Optum)'].map((insurance, idx) => (
+            {['Aetna', 'Cigna', 'Carelon', 'Optum (UnitedHealth Care)', 'Oscar', 'Blue Cross Blue Shield', 'Medicare', 'GTEB', 'Humana', 'Ambetter', 'Cash (Self-Pay)', 'Wellcare', 'Care First', 'Medicaid'].map((insurance, idx) => (
               <div key={idx} className="px-6 py-4 bg-white rounded-lg border border-slate-200 text-base text-slate-600">
-                {insurance}{insurance === 'Oxford (Optum)' && <span className="ml-1 text-xs font-semibold uppercase tracking-wide text-emerald-600">Coming Soon</span>}
+                {insurance}
               </div>
             ))}
           </div>

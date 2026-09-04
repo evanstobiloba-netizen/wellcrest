@@ -5,6 +5,7 @@ import BookAppointmentButton from '../components/BookAppointmentButton'
 import Newsletter from '../components/Newsletter'
 import Services from '../sections/Services'
 import Insurance from '../sections/Insurance'
+import CommonConditions from '../sections/CommonConditions'
 import Locations from '../sections/Locations'
 import Why from '../sections/Why'
 import Genesight from '../sections/Genesight'
@@ -22,7 +23,7 @@ const heroStats = [
 ]
 
 const heroFeatures = [
-  { icon: HeartPulse, title: 'Mental Health', desc: 'Personalized therapy & psychiatric care' },
+  { icon: HeartPulse, title: 'Mental & Sexual Health', desc: 'Personalized mental & sexual health care' },
   { icon: Mic, title: 'In-Office & Telehealth', desc: 'In-person care in Georgia and virtual visits across GA, AZ, MD' },
 ]
 
@@ -38,6 +39,7 @@ export default function Home(){
       <Insurance />
       <DoctorBio />
       <Services services={services} />
+      <CommonConditions />
       <Locations />
       <Why />
       <Genesight />
@@ -78,7 +80,7 @@ function Hero({ hero }){
               className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-5"
             >
               <span className="text-brand">
-                {hero.title || 'Mental Health & Wellness.'}
+                {hero.title || 'Mental & Sexual Health.'}
               </span>
             </motion.h1>
             

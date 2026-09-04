@@ -1,16 +1,16 @@
 import { createClient } from '@supabase/supabase-js'
 import blogPostsData from './data/blogPosts.json'
 
-const supabaseUrl = 'https://ssdbhxpxoraeuzeufufh.supabase.co'
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNzZGJoeHB4b3JhZXV6ZXVmdWZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcwMzExNjcsImV4cCI6MjA5MjYwNzE2N30.ZEiqT8MZXTuNUmMdE3NHk1SM7CKgSdNCEztY9zMr8bY'
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://ssdbhxpxoraeuzeufufh.supabase.co'
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNzZGJoeHB4b3JhZXV6ZXVmdWZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcwMzExNjcsImV4cCI6MjA5MjYwNzE2N30.ZEiqT8MZXTuNUmMdE3NHk1SM7CKgSdNCEztY9zMr8bY'
 
 export const supabase = createClient(supabaseUrl, supabaseKey)
 
 export const defaultContent = {
-  _version: 6,
+  _version: 7,
   hero: {
     badge: 'YOUR HEALTH, OUR PRIORITY',
-    title: 'Mental Health & Wellness.',
+    title: 'Mental & Sexual Health.',
     subtitle: 'Compassionate, evidence-based care delivered with convenience and affordability. In-person in Georgia. Telehealth across Georgia, Arizona, and Maryland.',
     ctaPrimary: 'Book Appointment',
     ctaSecondary: 'About Us',
@@ -18,6 +18,7 @@ export const defaultContent = {
   services: [
     { id: 1, title: 'Mental Health Services', shortDesc: 'Personalized therapy & psychiatric care', description: 'Comprehensive mental health services including therapy, psychiatric evaluations, and holistic therapy support.', icon: 'Brain' },
     { id: 2, title: 'Telehealth', shortDesc: 'Virtual visits in GA, AZ, MD', description: 'Convenient virtual appointments accessible from anywhere in our serving states.', icon: 'Video' },
+    { id: 3, title: 'Sexual Health Services', shortDesc: 'Assessment, therapy & education', description: 'Confidential sexual health care including assessment, individual therapy, education, and coordination of care.', icon: 'Heart' },
   ],
   locations: [
     { id: 'georgia', name: 'Georgia', tagline: 'In-Person Care', address: '7910 Mall Ring Road Suite 200, Stonecrest, GA 30038', phone: '470-481-2034', email: 'info@wellcresttherapy.com' },
@@ -37,7 +38,7 @@ export const defaultContent = {
   ],
 }
 
-export const CURRENT_VERSION = 6
+export const CURRENT_VERSION = 7
 
 export async function fetchContent() {
   const cached = localStorage.getItem('wellcrest-content')

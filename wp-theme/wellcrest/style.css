@@ -1,0 +1,17 @@
+/*
+Theme Name: WellCrest Health
+Theme URI: https://wellcresttherapy.com
+Author: WellCrest Health
+Author URI: https://wellcresttherapy.com
+Description: WordPress theme cloned from the WellCrest Health React site. Matches the original design with Inter font, brand colors (#0066FF, #2AB7A6, #0A2540), responsive navigation with dropdowns, home page sections (hero, insurance, doctor bio, services, locations, why, genesight, newsletter), and sub-pages (about, services, locations, articles, contact, sexual health, preceptorship).
+Version: 1.0.0
+Requires at least: 5.0
+Tested up to: 6.4
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: wellcrest
+Tags: one-column, custom-menu, custom-logo, featured-images, translation-ready, blog, e-commerce
+*/
+
+/* Theme styles are loaded from assets/css/main.css via functions.php */

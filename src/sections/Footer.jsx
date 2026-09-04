@@ -44,7 +44,7 @@ export default function Footer(){
               <img src="/wellcrest-logo.png" alt="WellCrest" className="h-20 w-auto" />
             </Link>
             <p className="text-slate-400 mb-6 max-w-xs leading-relaxed">
-              Compassionate, convenient, and affordable mental health services. We deliver evidence-based care across Georgia, Arizona, and Maryland.
+              Compassionate, convenient, and affordable mental and sexual health services. We deliver evidence-based care across Georgia, Arizona, and Maryland.
             </p>
             <div className="flex flex-col gap-3">
               <a href="tel:4704812034" className="flex items-center gap-3 text-white hover:text-blue-400 transition-colors">

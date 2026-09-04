@@ -1,27 +1,24 @@
 import React from 'react'
+import { Wallet } from 'lucide-react'
 
 const insurances = [
   { name: 'Aetna', src: '/logos/aetna.svg' },
-  { name: 'Blue Cross Blue Shield of Georgia', src: '/logos/anthem.svg' },
-  { name: 'Blue Cross Blue Shield of North Carolina', src: '/logos/bcbs-north-carolina.svg' },
-  { name: 'Cigna Healthcare', src: '/logos/cigna.svg' },
-  { name: 'Tricare', src: '/logos/tricare.svg' },
-  { name: 'Ambetter', src: '/logos/ambetter.png' },
+  { name: 'Cigna', src: '/logos/cigna.svg' },
+  { name: 'Carelon', src: '/logos/carelon-behavioral-health.svg' },
+  { name: 'Optum (UnitedHealth Care)', src: '/logos/unitedhealthcare.svg' },
   { name: 'Oscar', src: '/logos/oscar.svg' },
-  { name: 'U.S. Department of Veterans Affairs', src: '/logos/va.svg' },
-  { name: 'UnitedHealthcare', src: '/logos/unitedhealthcare.svg' },
-  { name: 'UnitedHealthcare Oxford', src: '/logos/oxford.png' },
-  { name: 'Humana', src: '/logos/humana.svg' },
-  { name: 'Medicare', src: '/logos/medicare.svg' },
-  { name: 'Anthem', src: '/logos/anthem.svg' },
   { name: 'Blue Cross Blue Shield', src: '/logos/blue-cross-blue-shield.svg' },
-  { name: 'Carelon Behavioral Health', src: '/logos/carelon-behavioral-health.svg' },
-  { name: 'CareFirst BlueCross BlueShield', src: '/logos/carefirst.png' },
-  { name: 'Oxford (Optum)', src: '/logos/oxford.png', comingSoon: true },
+  { name: 'Medicare', src: '/logos/medicare.svg' },
+  { name: 'GTEB' },
+  { name: 'Humana', src: '/logos/humana.svg' },
+  { name: 'Ambetter', src: '/logos/ambetter.png' },
+  { name: 'Cash (Self-Pay)', icon: 'cash' },
+  { name: 'Wellcare', src: '/logos/wellcare.png' },
+  { name: 'Care First', src: '/logos/carefirst.png' },
+  { name: 'Medicaid', src: '/logos/medicaid.png' },
 ]
 
 export default function Insurance(){
-  const items = [...insurances, ...insurances]
   return (
     <section className="py-20 bg-white border-y border-slate-100 overflow-hidden" aria-label="Insurance Accepted">
       <div className="max-w-7xl mx-auto px-6">
@@ -41,9 +38,11 @@ export default function Insurance(){
                   {ins.src ? (
                     <img src={ins.src} alt={ins.name} className="h-10 md:h-12 w-auto max-w-[190px] object-contain" />
                   ) : (
-                    <span className="text-lg md:text-xl font-medium text-gray-600">
-                      {ins.name}
-                      {ins.comingSoon && <span className="ml-1 text-xs font-semibold uppercase tracking-wide text-emerald-600">Coming Soon</span>}
+                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 bg-slate-50">
+                      {ins.icon && <Wallet className="w-4 h-4 text-slate-400" />}
+                      <span className="text-base md:text-lg font-semibold text-gray-600 whitespace-nowrap">
+                        {ins.name}
+                      </span>
                     </span>
                   )}
                 </div>

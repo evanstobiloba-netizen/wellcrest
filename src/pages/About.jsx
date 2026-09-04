@@ -27,10 +27,10 @@ export default function About(){
               About Us
             </span>
             <h1 className="text-4xl lg:text-5xl font-bold text-[#0A2540] mb-6">
-              Compassionate Care for Your Mental Health
+              Compassionate Care for Your Mental &amp; Sexual Health
             </h1>
             <p className="text-lg text-[#5A6A7A] mb-8">
-              WellCrest Health is a leading mental health practice dedicated to providing compassionate, convenient, and affordable mental health services to patients across Georgia, Arizona and Maryland.
+              WellCrest Mental &amp; Sexual Health is a leading mental and sexual health practice dedicated to providing compassionate, convenient, and affordable mental and sexual health services to patients across Georgia, Arizona and Maryland.
             </p>
           </motion.div>
         </div>
@@ -50,7 +50,7 @@ export default function About(){
                 Our Mission
               </h2>
               <p className="text-[#5A6A7A] leading-relaxed">
-                WellCrest Health is committed to helping individuals achieve optimal health and well-being through compassionate, patient-centered care that integrates mental health and wellness services. We provide evidence-based approaches across the lifespan, recognizing the connection between physical and emotional health. We believe everyone deserves access to high-quality, comprehensive care in a supportive, respectful, and understanding environment.
+                WellCrest Mental &amp; Sexual Health is committed to helping individuals achieve optimal health and well-being through compassionate, patient-centered care that integrates mental health, sexual health, and wellness services. We provide evidence-based approaches across the lifespan, recognizing the connection between physical and emotional health. We believe everyone deserves access to high-quality, comprehensive care in a supportive, respectful, and understanding environment.
               </p>
             </motion.div>
             <motion.div 

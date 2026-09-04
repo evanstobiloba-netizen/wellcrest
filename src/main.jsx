@@ -16,6 +16,10 @@ import BlogDetail from './pages/BlogDetail'
 import Contact from './pages/Contact'
 import Admin from './pages/Admin'
 import Preceptorship from './pages/Preceptorship'
+import SexualHealthAssessment from './pages/SexualHealthAssessment'
+import SexualHealthTherapy from './pages/SexualHealthTherapy'
+import SexualHealthEducation from './pages/SexualHealthEducation'
+import SexualHealthCoordination from './pages/SexualHealthCoordination'
 
 const root = createRoot(document.getElementById('root'))
 root.render(
@@ -31,6 +35,12 @@ root.render(
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/services/mental-health" element={<ServiceDetail type="mental" />} />
             <Route path="/services/mental-health/:serviceId" element={<ServiceDetailPage />} />
+            
+            {/* Sexual Health */}
+            <Route path="/sexual-health/assessment" element={<SexualHealthAssessment />} />
+            <Route path="/sexual-health/individual-therapy" element={<SexualHealthTherapy />} />
+            <Route path="/sexual-health/education" element={<SexualHealthEducation />} />
+            <Route path="/sexual-health/coordination" element={<SexualHealthCoordination />} />
             
             {/* Locations */}
             <Route path="/locations" element={<LocationsPage />} />

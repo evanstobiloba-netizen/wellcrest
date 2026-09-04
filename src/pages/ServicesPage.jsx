@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../sections/Footer'
 import BookAppointmentButton from '../components/BookAppointmentButton'
-import { Brain, ArrowRight } from 'lucide-react'
+import CommonConditions from '../sections/CommonConditions'
+import { Brain, Heart, ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 export default function ServicesPage(){
@@ -14,6 +15,13 @@ export default function ServicesPage(){
       icon: Brain,
       href: '/services/mental-health',
       servicesCount: 7
+    },
+    {
+      title: 'Sexual Health Services',
+      description: 'Confidential, compassionate care for sexual health concerns including assessment & diagnosis, individual therapy, education, and coordination of care.',
+      icon: Heart,
+      href: '/sexual-health/assessment',
+      servicesCount: 4
     }
   ]
 
@@ -31,7 +39,7 @@ export default function ServicesPage(){
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10 relative">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12">
             <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">Our Services</h1>
-            <p className="text-lg text-slate-500 max-w-2xl mx-auto">Compassionate, convenient, and affordable mental health services across Georgia, Arizona, and Maryland.</p>
+            <p className="text-lg text-slate-500 max-w-2xl mx-auto">Compassionate, convenient, and affordable mental and sexual health services across Georgia, Arizona, and Maryland.</p>
           </motion.div>
         </div>
       </section>
@@ -72,6 +80,8 @@ export default function ServicesPage(){
           </div>
         </div>
       </section>
+
+      <CommonConditions />
 
       {/* Why Choose Us */}
       <section className="py-16 bg-slate-50">

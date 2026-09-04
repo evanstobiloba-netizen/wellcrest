@@ -39,10 +39,10 @@ export default function Hero(){
               className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-6"
             >
 <span className="text-brand">
-                Mental Health
+                Mental &amp; Sexual
               </span>
               <span className="text-slate-900">
-                & Wellness.
+                Health.
               </span>
             </motion.h1>
             
@@ -53,7 +53,7 @@ export default function Hero(){
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-base sm:text-lg text-slate-500 max-w-xl mb-8 leading-relaxed"
             >
-              WellCrest Health delivers compassionate, evidence-based care across mental health and wellness. In-person in Georgia. Telehealth across Georgia, Arizona, and Maryland.
+              WellCrest Mental &amp; Sexual Health delivers compassionate, evidence-based care across mental health, sexual health, and wellness. In-person in Georgia. Telehealth across Georgia, Arizona, and Maryland.
             </motion.p>
 
             {/* CTAs */}

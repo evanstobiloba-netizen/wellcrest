@@ -137,7 +137,7 @@ Copy `.env.example` to `.env` and set your values. The file is gitignored.
 
 - Create a Supabase project and a `content` table with columns `id` (text) and `data` (jsonb), primary key on `id`.
 - Insert one row: `id = 'main'`, `data` = your content object.
-- Replace the hardcoded `supabaseUrl` / `supabaseKey` in `src/supabase.js` with your project's values.
+- Point to your project by creating a `.env` from `.env.example` and setting `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY`. If unset, the bundle falls back to the current project's public anon key embedded in `src/supabase.js`.
 - Enable realtime on the `content` table for live sync.
 
 > The Supabase URL and **anon** key in `src/supabase.js` are safe to keep in the bundle — the anon key is a public, client-side credential. Never use a `service_role` key in client code.

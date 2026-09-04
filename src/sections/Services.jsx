@@ -13,9 +13,23 @@ const iconMap = {
   FlaskConical: FlaskConical,
 }
 
+const coreServices = [
+  { id: 1, title: 'Mental Health Services', shortDesc: 'Personalized therapy & psychiatric care', description: 'Comprehensive mental health services including therapy, psychiatric evaluations, and holistic therapy support.', icon: 'Brain' },
+  { id: 2, title: 'Telehealth', shortDesc: 'Virtual visits in GA, AZ, MD', description: 'Convenient virtual appointments accessible from anywhere in our serving states.', icon: 'Video' },
+  { id: 3, title: 'Sexual Health Services', shortDesc: 'Assessment, therapy & education', description: 'Confidential sexual health care including assessment, individual therapy, education, and coordination of care.', icon: 'Heart' },
+]
+
 export default function Services({ services: propServices }){
   const { content } = useContent()
-  const services = propServices || content.services || []
+  const incoming = propServices || content.services || []
+  const merged = coreServices.map((core) => {
+    const match = incoming.find((s) => s.title === core.title)
+    return match ? { ...core, ...match } : core
+  })
+  incoming.forEach((s) => {
+    if (s && s.title && !merged.some((m) => m.title === s.title)) merged.push(s)
+  })
+  const services = merged.slice(0, 6)
   
   const container = {
     hidden: { opacity: 0 },
@@ -38,11 +52,22 @@ export default function Services({ services: propServices }){
         </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
-          {services.slice(0, 6).map((service, idx) => {
+          {services.map((service, idx) => {
             const IconComponent = iconMap[service.icon] || Brain
+            const isSexualHealth = /sexual/i.test(service.title)
             return (
-              <motion.div key={service.id || idx} variants={item} className="group">
-                <Link to="/services" className="block bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-slate-100 hover:shadow-xl hover:border-brand/20 transition-all duration-300">
+              <motion.div
+                key={service.id || idx}
+                variants={item}
+                className={`group ${idx === services.length - 1 && services.length === 3 ? 'md:col-span-2 lg:col-span-1' : ''}`}
+              >
+                <Link to={isSexualHealth ? '/sexual-health/assessment' : '/services'} className="relative block bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-slate-100 hover:shadow-xl hover:border-brand/20 transition-all duration-300">
+                  {isSexualHealth && (
+                    <span className="absolute top-5 right-5 inline-flex items-center gap-1 rounded-full bg-brand-teal text-white text-[10px] font-bold uppercase tracking-wide px-2 py-1 leading-none">
+                      <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                      New
+                    </span>
+                  )}
                   <div className="w-12 h-12 sm:w-14 rounded-xl bg-brand flex items-center justify-center mb-4 sm:mb-6">
                     <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                   </div>

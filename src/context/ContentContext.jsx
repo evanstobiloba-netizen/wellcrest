@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react'
-import { defaultContent, fetchContent, subscribeToContent, saveContent as saveToSupabase } from '../supabase'
+import { defaultContent, fetchContent, subscribeToContent, saveContent as saveToSupabase, CURRENT_VERSION } from '../supabase'
 
 const STORAGE_KEY = 'wellcrest-content'
 
@@ -8,7 +8,9 @@ const ContentContext = createContext()
 function loadFromStorage() {
   try {
     const saved = localStorage.getItem(STORAGE_KEY)
-    return saved ? JSON.parse(saved) : null
+    const savedVersion = localStorage.getItem(`${STORAGE_KEY}-version`)
+    if (!saved || Number(savedVersion) !== CURRENT_VERSION) return null
+    return JSON.parse(saved)
   } catch (e) {
     return null
   }
