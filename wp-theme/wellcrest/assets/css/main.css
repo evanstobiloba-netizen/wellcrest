@@ -245,16 +245,16 @@ ul, ol {
 .header-inner {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0.5rem 1rem 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 @media (min-width: 640px) {
-  .header-inner { padding: 0 1.5rem; }
+  .header-inner { padding: 0.5rem 1.5rem 0; }
 }
 @media (min-width: 1024px) {
-  .header-inner { padding: 0 2.5rem; }
+  .header-inner { padding: 0.5rem 2.5rem 0; }
 }
 
 .site-logo img {
