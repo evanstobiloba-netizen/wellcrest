@@ -135,7 +135,7 @@ export default function Navbar(){
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10 pt-2 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-3">
-          <img src="/wellcrest-logo.png" alt="WellCrest" className="h-16 xl:h-20 w-auto" />
+          <img src="/wellcrest-logo.png" alt="WellCrest" className="h-14 xl:h-16 w-auto" />
         </Link>
 
         {/* Desktop Nav */}
