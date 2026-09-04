@@ -27,7 +27,7 @@ $copyright  = wellcrest_opt( 'copyright', '© 2025 WellCrest Health. All rights 
 					<?php the_custom_logo(); ?>
 				<?php else : ?>
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-						<img src="<?php echo esc_url( WELLCREST_URI . '/assets/img/wellcrest-logo.png' ); ?>" alt="<?php bloginfo( 'name' ); ?>" />
+						<img src="<?php echo esc_url( WELLCREST_URI . '/assets/img/favicon.png' ); ?>" alt="<?php bloginfo( 'name' ); ?>" />
 					</a>
 				<?php endif; ?>
 

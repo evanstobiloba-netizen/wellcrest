@@ -41,7 +41,7 @@ export default function Footer(){
 {/* Brand column */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-3 mb-6">
-              <img src="/wellcrest-logo.png" alt="WellCrest" className="h-20 w-auto" />
+              <img src="/favicon.png" alt="WellCrest" className="h-16 w-auto" />
             </Link>
             <p className="text-slate-400 mb-6 max-w-xs leading-relaxed">
               Compassionate, convenient, and affordable mental and sexual health services. We deliver evidence-based care across Georgia, Arizona, and Maryland.
