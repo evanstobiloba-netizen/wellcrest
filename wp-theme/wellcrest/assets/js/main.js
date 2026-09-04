@@ -20,6 +20,16 @@
 		onScroll();
 		window.addEventListener('scroll', onScroll, { passive: true });
 
+		/* ---------- "New" pill: show only on first visit ---------- */
+		var newPills = document.querySelectorAll('.nav-new');
+		if (newPills.length) {
+			if (localStorage.getItem('wellcrest_new_pill_seen')) {
+				newPills.forEach(function (pill) { pill.remove(); });
+			} else {
+				localStorage.setItem('wellcrest_new_pill_seen', '1');
+			}
+		}
+
 		/* ---------- Mobile menu ---------- */
 		var toggle = document.getElementById('menu-toggle');
 		var mobileMenu = document.getElementById('mobile-menu');

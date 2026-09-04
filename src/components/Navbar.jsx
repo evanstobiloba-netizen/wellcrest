@@ -8,6 +8,7 @@ export default function Navbar(){
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState(null)
+  const [showNewPill, setShowNewPill] = useState(false)
   const navRef = useRef(null)
   const location = useLocation()
   const calendly = useCalendly()
@@ -50,6 +51,13 @@ export default function Navbar(){
     document.addEventListener('click', onClickOutside)
     return () => document.removeEventListener('click', onClickOutside)
   }, [openDropdown])
+
+  // Show the "New" pill only on a visitor's very first visit
+  useEffect(() => {
+    if (localStorage.getItem('wellcrest_new_pill_seen')) return
+    setShowNewPill(true)
+    localStorage.setItem('wellcrest_new_pill_seen', '1')
+  }, [])
 
   const sexualHealthLinks = [
     { label: 'Assessment & Diagnosis', href: '/sexual-health/assessment' },
@@ -160,15 +168,17 @@ export default function Navbar(){
                     >
                       <span className="relative inline-flex items-center">
                         {item.label}
-                        <span className="ml-1.5 inline-flex items-center gap-1 rounded-full bg-brand-teal text-white text-[9px] font-bold uppercase tracking-wide leading-none px-1.5 py-1">
-                          <motion.span
-                            animate={{ opacity: [1, 0.35, 1], scale: [1, 1.15, 1] }}
-                            transition={{ duration: 1.6, repeat: Infinity }}
-                            className="w-1.5 h-1.5 rounded-full bg-white"
-                          />
-                          New
-                          <span className="sr-only"> sexual health service</span>
-                        </span>
+                        {showNewPill && (
+                          <span className="ml-1.5 inline-flex items-center gap-1 rounded-full bg-brand-teal text-white text-[9px] font-bold uppercase tracking-wide leading-none px-1.5 py-1">
+                            <motion.span
+                              animate={{ opacity: [1, 0.35, 1], scale: [1, 1.15, 1] }}
+                              transition={{ duration: 1.6, repeat: Infinity }}
+                              className="w-1.5 h-1.5 rounded-full bg-white"
+                            />
+                            New
+                            <span className="sr-only"> sexual health service</span>
+                          </span>
+                        )}
                       </span>
                     </Link>
                     <button
@@ -196,7 +206,7 @@ export default function Navbar(){
                             <div key={column.title}>
                               <h4 className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-brand mb-3">
                                 {column.title}
-                                {column.title === 'Sexual Health' && (
+                                {showNewPill && column.title === 'Sexual Health' && (
                                   <span className="inline-flex items-center gap-1 rounded-full bg-brand-teal text-white text-[9px] font-bold uppercase tracking-wide leading-none px-1.5 py-1">
                                     <span className="w-1 h-1 rounded-full bg-white animate-pulse" />
                                     New
@@ -351,10 +361,12 @@ export default function Navbar(){
                           }`}
                         >
                           {item.label}
-                          <span className="inline-flex items-center gap-1 rounded-full bg-brand-teal text-white text-[9px] font-bold uppercase tracking-wide leading-none px-1.5 py-1">
-                            <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                            New
-                          </span>
+                          {showNewPill && (
+                            <span className="inline-flex items-center gap-1 rounded-full bg-brand-teal text-white text-[9px] font-bold uppercase tracking-wide leading-none px-1.5 py-1">
+                              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                              New
+                            </span>
+                          )}
                         </Link>
                         <button
                           type="button"
@@ -378,7 +390,7 @@ export default function Navbar(){
                                 <div key={column.title} className="pt-2">
                                   <p className="flex items-center gap-1.5 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-brand">
                                     {column.title}
-                                    {column.title === 'Sexual Health' && (
+                                    {showNewPill && column.title === 'Sexual Health' && (
                                       <span className="inline-flex items-center gap-1 rounded-full bg-brand-teal text-white text-[9px] font-bold uppercase tracking-wide leading-none px-1.5 py-1">
                                         New
                                       </span>
