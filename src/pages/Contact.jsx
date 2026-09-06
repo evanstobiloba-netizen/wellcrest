@@ -111,7 +111,7 @@ export default function Contact(){
                     <option value="depression">Depression Treatment</option>
                     <option value="anxiety">Anxiety Treatment</option>
                     <option value="bipolar">Bipolar Disorder</option>
-                    <option value="add-adhd">ADD/ADHD</option>
+                    <option value="adhd">ADHD</option>
                     <option value="ptsd">PTSD Treatment</option>
                     <option value="insomnia">Insomnia/Sleep Disorder</option>
                     <option value="other">Other</option>

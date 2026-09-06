@@ -14,7 +14,7 @@ export default function Footer(){
       { name: 'Anxiety Treatment', href: '/services/mental-health' },
       { name: 'Bipolar Disorder', href: '/services/mental-health' },
       { name: 'PTSD Treatment', href: '/services/mental-health' },
-      { name: 'ADD/ADHD', href: '/services/mental-health' },
+      { name: 'ADHD', href: '/services/mental-health' },
     ],
     company: [
       { name: 'About Us', href: '/about' },

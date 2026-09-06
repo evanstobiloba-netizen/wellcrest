@@ -50,7 +50,7 @@ const mentalHealthServices = [
   },
   {
     id: 'adhd',
-    title: 'ADD/ADHD Treatment',
+    title: 'ADHD Treatment',
     shortDesc: 'Comprehensive care for attention deficit disorders',
     description: 'Attention-deficit/hyperactivity disorder (ADHD) is marked by an ongoing pattern of inattention and/or hyperactivity-impulsivity that interferes with functioning or development.',
     icon: Calendar,

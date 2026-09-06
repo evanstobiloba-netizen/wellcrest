@@ -84,7 +84,7 @@ export default function Navbar(){
               { label: 'Anxiety Treatment', href: '/services/mental-health' },
               { label: 'Bipolar Disorder', href: '/services/mental-health' },
               { label: 'PTSD Treatment', href: '/services/mental-health' },
-              { label: 'ADD/ADHD', href: '/services/mental-health' },
+              { label: 'ADHD', href: '/services/mental-health' },
             ]
           },
           {

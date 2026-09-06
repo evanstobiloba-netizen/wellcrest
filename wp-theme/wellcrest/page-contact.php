@@ -61,7 +61,7 @@ get_template_part(
 								<option value="depression"><?php esc_html_e( 'Depression Treatment', 'wellcrest' ); ?></option>
 								<option value="anxiety"><?php esc_html_e( 'Anxiety Treatment', 'wellcrest' ); ?></option>
 								<option value="bipolar"><?php esc_html_e( 'Bipolar Disorder', 'wellcrest' ); ?></option>
-								<option value="add-adhd"><?php esc_html_e( 'ADD/ADHD', 'wellcrest' ); ?></option>
+								<option value="adhd"><?php esc_html_e( 'ADHD', 'wellcrest' ); ?></option>
 								<option value="ptsd"><?php esc_html_e( 'PTSD Treatment', 'wellcrest' ); ?></option>
 								<option value="insomnia"><?php esc_html_e( 'Insomnia/Sleep Disorder', 'wellcrest' ); ?></option>
 								<option value="other"><?php esc_html_e( 'Other', 'wellcrest' ); ?></option>
