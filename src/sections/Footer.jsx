@@ -15,6 +15,7 @@ export default function Footer(){
       { name: 'Bipolar Disorder', href: '/services/mental-health' },
       { name: 'PTSD Treatment', href: '/services/mental-health' },
       { name: 'ADHD', href: '/services/mental-health' },
+      { name: 'Sexual Health', href: '/sexual-health' },
     ],
     company: [
       { name: 'About Us', href: '/about' },

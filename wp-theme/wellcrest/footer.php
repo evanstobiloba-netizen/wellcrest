@@ -57,6 +57,7 @@ $copyright  = wellcrest_opt( 'copyright', '© 2025 WellCrest Health. All rights 
 					<li><a href="<?php echo esc_url( home_url( '/services/mental-health' ) ); ?>"><?php esc_html_e( 'Bipolar Disorder', 'wellcrest' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/services/mental-health' ) ); ?>"><?php esc_html_e( 'PTSD Treatment', 'wellcrest' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/services/mental-health' ) ); ?>"><?php esc_html_e( 'ADHD', 'wellcrest' ); ?></a></li>
+					<li><a href="<?php echo esc_url( home_url( '/sexual-health' ) ); ?>"><?php esc_html_e( 'Sexual Health', 'wellcrest' ); ?></a></li>
 				</ul>
 			</div>
 
